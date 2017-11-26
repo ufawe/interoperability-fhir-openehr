@@ -1,0 +1,527 @@
+{
+  "primitiveTypes" : [
+    {
+      "id" : "boolean"
+    },
+    {
+      "id" : "integer"
+    },
+    {
+      "id" : "string"
+    },
+    {
+      "id" : "decimal"
+    },
+    {
+      "id" : "uri"
+    },
+    {
+      "id" : "base64Binary"
+    },
+    {
+      "id" : "instant"
+    },
+    {
+      "id" : "date"
+    },
+    {
+      "id" : "dateTime"
+    },
+    {
+      "id" : "time"
+    },
+    {
+      "id" : "code"
+    },
+    {
+      "id" : "oid"
+    },
+    {
+      "id" : "id"
+    },
+    {
+      "id" : "markdown"
+    },
+    {
+      "id" : "unsignedInt"
+    },
+    {
+      "id" : "positiveInt"
+    }
+  ],
+  "complexTypes" : [
+    {
+      "id" : "Attachment",
+      "CML" : [
+        {
+          "name" : "contentType",
+          "type" : "code"
+        },
+        {
+          "name" : "language",
+          "type" : "code"
+        },
+        {
+          "name" : "data",
+          "type" : "base64Binary"
+        },
+        {
+          "name" : "url",
+          "type" : "uri"
+        },
+        {
+          "name" : "size",
+          "type" : "unsignedInt"
+        },
+        {
+          "name" : "hash",
+          "type" : "base64Binary"
+        },
+        {
+          "name" : "title",
+          "type" : "string"
+        },
+        {
+          "name" : "creation",
+          "type" : "dateTime"
+        }
+      ]
+    },
+    {
+      "id" : "Coding",
+      "CML" : [
+        {
+          "name" : "system",
+          "type" : "uri"
+        },
+        {
+          "name" : "version",
+          "type" : "string"
+        },
+        {
+          "name" : "code",
+          "type" : "code"
+        },
+        {
+          "name" : "display",
+          "type" : "string"
+        },
+        {
+          "name" : "userSelected",
+          "type" : "boolean"
+        }
+      ]
+    },
+    {
+      "id" : "CodeableConcept",
+      "CML" : [
+        {
+          "name" : "coding",
+          "type" : "Coding"
+        },
+        {
+          "name" : "text",
+          "type" : "string"
+        }
+      ]
+    },
+    {
+      "id" : "Quantity",
+      "CML" : [
+        {
+          "name" : "value",
+          "type" : "decimal"
+        },
+        {
+          "name" : "comparator",
+          "type" : "code"
+        },
+        {
+          "name" : "unit",
+          "type" : "string"
+        },
+        {
+          "name" : "system",
+          "type" : "uri"
+        },
+        {
+          "name" : "code",
+          "type" : "code"
+        }
+      ]
+    },
+    {
+      "id" : "Age",
+      "CML" : [
+        {
+          "name" : "value",
+          "type" : "decimal"
+        },
+        {
+          "name" : "comparator",
+          "type" : "code"
+        },
+        {
+          "name" : "unit",
+          "type" : "string"
+        },
+        {
+          "name" : "system",
+          "type" : "uri"
+        },
+        {
+          "name" : "code",
+          "type" : "code"
+        }
+      ]
+    },
+    {
+      "id" : "Count",
+      "CML" : [
+        {
+          "name" : "value",
+          "type" : "decimal"
+        },
+        {
+          "name" : "comparator",
+          "type" : "code"
+        },
+        {
+          "name" : "unit",
+          "type" : "string"
+        },
+        {
+          "name" : "system",
+          "type" : "uri"
+        },
+        {
+          "name" : "code",
+          "type" : "code"
+        }
+      ]
+    },
+    {
+      "id" : "Distance",
+      "CML" : [
+        {
+          "name" : "value",
+          "type" : "decimal"
+        },
+        {
+          "name" : "comparator",
+          "type" : "code"
+        },
+        {
+          "name" : "unit",
+          "type" : "string"
+        },
+        {
+          "name" : "system",
+          "type" : "uri"
+        },
+        {
+          "name" : "code",
+          "type" : "code"
+        }
+      ]
+    },
+    {
+      "id" : "Duration",
+      "CML" : [
+        {
+          "name" : "value",
+          "type" : "decimal"
+        },
+        {
+          "name" : "comparator",
+          "type" : "code"
+        },
+        {
+          "name" : "unit",
+          "type" : "string"
+        },
+        {
+          "name" : "system",
+          "type" : "uri"
+        },
+        {
+          "name" : "code",
+          "type" : "code"
+        }
+      ]
+    },
+    {
+      "id" : "Money",
+      "CML" : [
+        {
+          "name" : "value",
+          "type" : "decimal"
+        },
+        {
+          "name" : "comparator",
+          "type" : "code"
+        },
+        {
+          "name" : "unit",
+          "type" : "string"
+        },
+        {
+          "name" : "system",
+          "type" : "uri"
+        },
+        {
+          "name" : "code",
+          "type" : "code"
+        }
+      ]
+    },
+    {
+      "id" : "SimpleQuantity",
+      "CML" : [
+        {
+          "name" : "value",
+          "type" : "decimal"
+        },
+        {
+          "name" : "comparator",
+          "type" : "code"
+        },
+        {
+          "name" : "unit",
+          "type" : "string"
+        },
+        {
+          "name" : "system",
+          "type" : "uri"
+        },
+        {
+          "name" : "code",
+          "type" : "code"
+        }
+      ]
+    },
+    {
+      "id" : "Range",
+      "CML" : [
+        {
+          "name" : "low",
+          "type" : "SimpleQuantity"
+        },
+        {
+          "name" : "high",
+          "type" : "SimpleQuantity"
+        }
+      ]
+    },
+    {
+      "id" : "Ratio",
+      "CML" : [
+        {
+          "name" : "numerator",
+          "type" : "Quantity"
+        },
+        {
+          "name" : "denominator",
+          "type" : "Quantity"
+        }
+      ]
+    },
+    {
+      "id" : "Period",
+      "CML" : [
+        {
+          "name" : "start",
+          "type" : "dateTime"
+        },
+        {
+          "name" : "end",
+          "type" : "dateTime"
+        }
+      ]
+    },
+    {
+      "id" : "SampledData",
+      "CML" : [
+        {
+          "name" : "origin",
+          "type" : "SimpleQuantity"
+        },
+        {
+          "name" : "period",
+          "type" : "decimal"
+        },
+        {
+          "name" : "factor",
+          "type" : "decimal"
+        },
+        {
+          "name" : "lowerLimit",
+          "type" : "decimal"
+        },
+        {
+          "name" : "upperLimit",
+          "type" : "decimal"
+        },
+        {
+          "name" : "dimensions",
+          "type" : "positiveInt"
+        },
+        {
+          "name" : "data",
+          "type" : "string"
+        }
+      ]
+    },
+    {
+      "id" : "Identifier",
+      "CML" : [
+        {
+          "name" : "use",
+          "type" : "code"
+        },
+        {
+          "name" : "type",
+          "type" : "CodeableConcept"
+        },
+        {
+          "name" : "system",
+          "type" : "uri"
+        },
+        {
+          "name" : "value",
+          "type" : "string"
+        },
+        {
+          "name" : "period",
+          "type" : "Period"
+        },
+        {
+          "name" : "assigner",
+          "type" : "Reference"
+        }
+      ]
+    },
+    {
+      "id" : "HumanName",
+      "CML" : [
+        {
+          "name" : "use",
+          "type" : "code"
+        },
+        {
+          "name" : "text",
+          "type" : "string"
+        },
+        {
+          "name" : "family",
+          "type" : "string"
+        },
+        {
+          "name" : "given",
+          "type" : "string"
+        },
+        {
+          "name" : "prefix",
+          "type" : "string"
+        },
+        {
+          "name" : "suffix",
+          "type" : "string"
+        },
+        {
+          "name" : "Period",
+          "type" : "Period"
+        }
+      ]
+    },
+    {
+      "id" : "Address",
+      "CML" : [
+        {
+          "name" : "use",
+          "type" : "code"
+        },
+        {
+          "name" : "type",
+          "type" : "code"
+        },
+        {
+          "name" : "text",
+          "type" : "string"
+        },
+        {
+          "name" : "line",
+          "type" : "string"
+        },
+        {
+          "name" : "city",
+          "type" : "string"
+        },
+        {
+          "name" : "district",
+          "type" : "string"
+        },
+        {
+          "name" : "state",
+          "type" : "string"
+        },
+        {
+          "name" : "postalCode",
+          "type" : "string"
+        },
+        {
+          "name" : "country",
+          "type" : "string"
+        },
+        {
+          "name" : "period",
+          "type" : "Period"
+        }
+      ]
+    },
+    {
+      "id" : "ContactPoint",
+      "CML" : [
+        {
+          "name" : "system",
+          "type" : "code"
+        },
+        {
+          "name" : "value",
+          "type" : "string"
+        },
+        {
+          "name" : "use",
+          "type" : "code"
+        },
+        {
+          "name" : "rank",
+          "type" : "positiveInt"
+        },
+        {
+          "name" : "period",
+          "type" : "Period"
+        }
+      ]
+    }
+  ],
+  "specialTypes" : [
+    {
+      "id" : "Reference",
+      "CML" : [
+        {
+          "name" : "reference",
+          "type" : "string"
+        },
+        {
+          "name" : "identifier",
+          "type" : "string"
+        },
+        {
+          "name" : "display",
+          "type" : "string"
+        }
+      ]
+    }
+  ]
+}

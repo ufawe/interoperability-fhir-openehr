@@ -1,0 +1,17 @@
+# ignore input and output files of the scripts
+implementation/io/**
+
+# ignore compiled bytecode of Python source files
+*.pyc
+
+# ignore generated files by LaTex
+*.aux
+*.log
+*.synctex.gz
+*.pdf
+
+# ignore generated files by BibTex
+*.bbl
+*.bcf
+*.blg
+*.run.xml

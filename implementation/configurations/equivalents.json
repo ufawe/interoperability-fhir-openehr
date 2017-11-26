@@ -1,0 +1,18 @@
+{
+	"boolean": "DV_BOOLEAN",
+	"integer": "DV_QUANTITY",
+	"string": "DV_TEXT",
+	"decimal": "DV_QUANTITY",
+	"uri": "DV_URI",
+	"base64Binary": "DV_PARSABLE",
+	"instant": "DV_DATE_TIME",
+	"date": "DV_DATE",
+	"dateTime": "DV_DATE_TIME",
+	"time": "DV_TIME",
+	"code": "DV_TEXT",
+	"oid": "DV_URI",
+	"id": "DV_TEXT",
+	"markdown": "DV_PARSABLE",
+	"unsignedInt": "DV_QUANTITY",
+	"positiveInt": "DV_QUANTITY"
+}
