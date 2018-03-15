@@ -112,12 +112,7 @@ def add_type_definition(element, dictionary_definitions):
 
     if element.value['type'] == 'BackboneElement':
         for element_backbone in element.children:
-            type_node = Node()
-            element_definition = dictionary_definitions[element_backbone.value['type']]
-            add_element_name_to_tree_node(type_node, element_definition['id'])
-            add_element_type_to_tree_node(type_node, element_definition['id'])
-            element_backbone.children.append(type_node)
-            add_type_definition(type_node, dictionary_definitions)
+            add_type_definition(element_backbone, dictionary_definitions)
     #elif element.value['id'] != element.value['type']:
     else:
         element_definition = dictionary_definitions[element.value['type']]
