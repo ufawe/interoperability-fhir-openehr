@@ -112,7 +112,7 @@ if __name__ == '__main__':
     adl_name = resource_name + '.adls'
     adl_file = open(output + adl_name,'w')
     adl = 'archetype (adl_version=2.0.6; rm_release=1.0.3)\n'
-    adl = adl + 'openehr-ehr-CLUSTER.' + schema_source.split('.')[0] + '-fhir.v0.0.1\n'
+    adl = adl + 'openehr-ehr-CLUSTER.' + resource_name + '-fhir.v0.0.1\n'
     adl = adl + "language\n"
     adl = adl + "original_language = <[iso_639-1::en]>\n"
     adl = adl + "description\n"
