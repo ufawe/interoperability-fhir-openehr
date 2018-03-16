@@ -53,4 +53,5 @@ Require TeX program (with the LaTeX macros loaded).
 # pdflatex paper
 # biber paper
 # pdflatex paper
+# pdflatex paper
 ```

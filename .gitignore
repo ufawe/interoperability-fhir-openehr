@@ -10,6 +10,9 @@ implementation/io/**
 *.synctex.gz
 *.pdf
 
+#ignore generated files by documentclass elsarticle
+*.spl
+
 # ignore generated files by BibTex
 *.bbl
 *.bcf
