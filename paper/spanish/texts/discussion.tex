@@ -1,1 +1,9 @@
 \section{Conclusión}
+
+Este trabajo presenta las equivalencias entre los tipos de datos FHIR y las clases del Modelo de Referencia de openEHR, así como las condiciones para encontrar dichas equivalencias: 1) el dominio de valores de un tipo de dato de FHIR puede ser almacenado dentro de uno de los atributos de una de las clases del modelo de referencia de openEHR, 2) se conserva el uso de la clase de openEHR para la cual fue diseñada. Además, se presenta un proceso automatizado para la creación de arquetipos de openEHR a partir de recursos FHIR.
+
+A partir de las equivalencias se observó que todos los tipos de datos FHIR tienen su equivalente en openEHR, concluyéndose que ambos estándares comparten los mismos valores de dominio. Esto permite crear arquetipos que modelen los datos provenientes de recursos FHIR en repositorios openEHR, y se pueden crear reglas de conversión entre los mismos.
+
+La creación automática de los arquetipos basándose en equivalencias de tipos muestra una reducción significativa en comparación a la creación manual de los mismos arquetipos.
+
+En conclusión, las equivalencias de tipos y el proceso automático podrán mejorar la interoperabilidad de sistemas FHIR y openEHR, siendo un siguiente paso verificar la posibilidad de crear recursos de FHIR de arquetipos de openEHR utilizando las equivalencias presentadas y el proceso propuesto en este trabajo.
