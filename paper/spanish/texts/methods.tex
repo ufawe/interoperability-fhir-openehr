@@ -1,25 +1,18 @@
 \section{Método}
 
-La especificación de FHIR define diferentes categorías de tipos de datos. Entre los cuales, se encuentra los tipos de datos primitivos que permiten un solo valor de un dominio de valores definidos por cada tipo \cite{FHIRDataTypes}. Las demás categorías son tipos de datos complejos que utilizan a los tipos de datos primitivos para su definición.
+Un recurso FHIR contiene un conjunto de elementos de datos estructurados descriptos en la definición de su tipo \cite{FHIRResource}. Un arquetipo openEHR constituye una encapsulación de un conjunto de puntos de datos pertencientes a un contenido de dominio, expresado en términos de restricciones del modelo de información de referencia openEHR \cite{openEHRArchetype}. Una forma de encontrar correspondencia entre un recurso FHIR y un arquetipo openEHR es encontrar las relaciones entre los elementos de datos del recurso FHIR y los puntos de datos del arquetipo openEHR. El enfoque propuesto en este trabajo para encontrar estas relaciones es crear el arquetipo openEHR a partir de la definición del recurso FHIR.
 
-Dentro de las especificaciones de openEHR se definen sus tipos de datos como clases de su Modelo de Referencia. Entre estas clases, se encuentra la clase DATA\_VALUE que sirve como antecesora común de todos los tipos de valores de datos en los modelos openEHR, y las clases que heredan de la misma se caracterizan por tener un atributo que almacena los tipos de datos primitivos estándares \cite{openEHRDataTypes}.
+Como la definición de un elemento en un recurso FHIR incluye tipo de dato \cite{FHIRElement}, es un prerrequisito encontrar las equivalencias entre los tipos de datos FHIR y los tipos de datos openEHR para el enfoque propuesto en este trabajo.
 
-Se propone encontrar equivalencias entre los tipos de datos primitivos de FHIR y las clases que extiende de DATA\_VALUE de openEHR. Una equivalencia existe si se cumplen las condiciones de: 1) el dominio de valores de un tipo de dato primitivo de FHIR puede ser almacenado dentro de uno de los atributos de una de las clases que extiende de la clase DATA\_VALUE de openEHR, 2) se conserva el uso de la clase de openEHR para el cual fue diseñado.
+La creación de un arquetipo openEHR a partir de la definición de un recurso FHIR utilizando las equivalencias de tipos de datos puede ser sencilla. Dentro de un editor de arquetipos como los citados en \cite{openEHRModellingTools}, se puede crear de forma manual el arquetipo openEHR modelando la misma estructura del recurso FHIR utilizando el tipo de dato openEHR donde corresponda teniendo en cuenta las equivalencias de tipos de datos. Una alternativa diferente se presenta en este trabajo, consistente en la creación a través de un proceso automatizado. Las ventajas de esta alternativa frente al tipo de creación manual son un tiempo de creación y un riesgo de introducir errores por factor humano menores.
 
-Como ejemplo, si se considera el tipo primitivo de FHIR boolean y la clase DV\_BOOLEAN de openEHR se observa que: 1) los valores true, false del tipo boolean pueden ser contenidos dentro del atributo value de la clase DV\_BOOLEAN de openEHR, 2) el uso de la clase DV\_BOOLEAN, la cual especifica que la clase se usa para elementos que son datos verdaderamente booleanos se conserva. Se puede verificar, que las condiciones de equivalencia se cumplen, y, por lo tanto, según lo propuesto por este trabajo el tipo primitivo boolean de FHIR y la clase DV\_BOOLEAN de openEHR son equivalentes.
-
-Las equivalencias encontradas se usarán para la creación de arquetipos que modelen los datos en los repositorios openEHR de recursos FHIR intercambiados.
-
-Una forma de crear los arquetipos de recursos FHIR es modelar la misma estructura de los recursos usando las equivalencias de tipos dentro de algún editor de arquetipos disponibles \cite{openEHRModellingTools}. Los principales inconvenientes de la creación manual son la lentitud y un mayor riesgo de introducir errores por factor humano. Una alternativa diferente es la propuesta en este trabajo, consistente en la creación a través de un proceso automatizado de 3 etapas: abstracción, sustitución y definición, las cuales se realizan por cada arquetipo openEHR de recurso FHIR a crearse. La figura \ref{fig:solution} ilustra el proceso automatizado propuesto.
-
-\begin{figure}
-  \includegraphics[scale=0.5]{./images/solution}
+\begin{figure*}[t]
+  \centering
+  \includegraphics[scale=0.6]{./images/solution}
   \caption{Proceso automatizado}
   \label{fig:solution}
-\end{figure}
+\end{figure*}
 
-\input{./texts/abstraction.tex}
+\input{./texts/equivalents.tex}
 
-\input{./texts/substitution.tex}
-
-\input{./texts/definition.tex}
+\input{./texts/automation.tex}

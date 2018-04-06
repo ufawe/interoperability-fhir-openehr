@@ -1,15 +1,9 @@
-\subsection{Automatización}
+\subsection{Proceso automatizado}
 
-Con el fin de comparar los tiempos de creación manual y automática, se llevó a cabo un experimento en el cual se comparó el tiempo requerido para la creación manual y automática del arquetipo de openEHR de recurso Flag de FHIR. Para la creación manual se utilizó el editor ADL WORKbench \cite{ADLWORKbench}. Para la creación automática se implementó el proceso (ver Figura 1) en el lenguaje Python, el cual retorna arquetipos con estructuras equivalentes a los recursos. Los resultados del experimento (ver Cuadro \ref{table:automation}) muestran una reducción significativa en el tiempo de creación usando el proceso automático.
+El proceso automatizado se divide en 3 etapas: abstracción, sustitución y definición, las cuales se repiten por cada arquetipo openEHR a crearse a partir de recursos FHIR. La figura \ref{fig:solution} ilustra el proceso automatizado desarrollado.
 
-\begin{table}
-  \caption{Automatización}
-  \label{table:automation}
-  \begin{tabular}{l l}
-    \hline
-    Creación Manual	& Creación Automática \\
-    \hline
-    Aprox. 30 minutos	& Aprox. 180 milisegundos \\
-    \hline
-  \end{tabular}
-\end{table}
+\input{./texts/abstraction.tex}
+
+\input{./texts/substitution.tex}
+
+\input{./texts/definition.tex}

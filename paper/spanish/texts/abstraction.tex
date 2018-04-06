@@ -1,15 +1,40 @@
-\subsection{Etapa de abstracción}
+\subsubsection{Etapa de abstracción}
 
-Los recursos de FHIR se modelan dentro de un sistema de tipos de FHIR. Este último es similar a la formalización propuesta en \cite{Maldonado09}, la cual permite expresar los recursos de manera independiente a la sintaxis de FHIR conservando la estructura. En el formalismo de este trabajo se incluye la semántica de los recursos y se crean identificadores que más adelante se convertirán en los identificadores de los nodos de los arquetipos.
+Se modela un recurso FHIR dentro de un sistema de tipos similar al desarrollado en \cite{Maldonado09}. Un elemento de un recurso FHIR se abstrae por un tipo que describe su estructura. Una definición de un tipo es de la forma:
 
-Una ventaja de que estos identificadores se mantengan en los arquetipos creados es la posibilidad de formar caminos ADL en esta etapa y relacionarlos con los nombres de los elementos de los recursos. Estas relaciones se podrán usar para convertir los datos desde su formato sintáctico original FHIR en estructuras openEHR por medio de programas de transformación basados en XQuery.
+\begin{align*}
+T_t:=p_t\{h_t\}
+\end{align*}
 
-Las salidas de la abstracción, llamados esquemas FHIR, son conjuntos de tipos de FHIR definidos formalmente, los cuales modelan los recursos.
+donde \(T_t\) es el nombre del tipo \(t\), \(p_t\) es el predicado que describe los valores soportados por el tipo \(t\) y \(h_t\) es un CML que especifica los elementos hijos que puede tener el tipo \(t\).
 
-Como ejemplo, considerando el recurso SimplifiedPatient (Ver figura \ref{fig:abstraction} (a)) que es una simplificación del recurso Patient de FHIR, se puede abstraer dentro de un sistema de tipos de datos de FHIR (Ver figura \ref{fig:abstraction} (b)).
+La definición de un recurso FHIR \(R\) con elementos \(E_1\), \dots , \(E_2\) se abstrae con una definición de tipo como sigue:
 
-\begin{figure}
-  \includegraphics[scale=0.5]{./images/abstraction}
-  \caption{(a) Recurso SimplifiedPatient (b) Esquema FHIR del recurso SimplifiedPatient}
-  \label{fig:abstraction}
-\end{figure}
+\begin{align*}
+T_R:=es\_R\{T_{E_1}^{(min_{E_1} \colon max_{E_1})} \dots T_{E_2}^{(min_{E_2} \colon max_{E_2})}\}
+\end{align*}
+
+donde \(T_{E_1}\) es el tipo que define el elemento \(E_1\), \(min_{E_1}\) y \(max_{E_1}\) son los límites inferior y superior respectivamente de las veces que se permite que el elemento \(E_1\) aparezca en el recurso \(R\). La diferencia con el CML introducido en \cite{Maldonado09} es que en la definición de un tipo no se utilizan las restricciones de longitud por no agregar información adicional a la definición de un recurso FHIR.
+
+Muchos elementos en los recursos FHIR tienen un valor codificado \cite{FHIRTerminology}. El conjunto de valores codificados que se permite en un elemento se conoce como un conjunto de valores. Una vinculación de un conjunto de valores establecido para un elemento se hace en la definición del elemento. Para modelar vinculaciones, se extiende el sistema de tipos presentado en \cite{Maldonado09}, agregando definiciones de vinculación. Una definición de vinculación es de la forma:
+
+\begin{align*}
+[T_E] := CV
+\end{align*}
+
+donde \(T_E\) es la definición del tipo del elemento al cual se le vincula el conjunto de valores \(CV\).
+
+Por ejemplo, al considerar el recurso SimplePatient (simplificación del recurso FHIR Patient \cite{FHIRPatient}) que modela un paciente que tiene un solo elemento gender del tipo code \cite{FHIRDataTypes} vinculado al conjunto de valores AdministrativeGender \cite{FHIRAdministrativeGender}, se modela por el conjunto de tipos:
+
+\begin{align*}
+&T_{SimplePatient}:= \\
+&\qquad es\_SimplePatient\{T_{SimplePatient.gender}^{(0:1)}\} \\
+&T_{SimplePatient.gender}:= \\
+&\qquad es\_gender\{T_{SimplePatient.gender.code}^{(1:1)}\} \\
+&T_{SimplePatient.gender.code}:= \\
+&\qquad es\_code\{\epsilon\} \\
+&[T_{SimplePatient.gender.code}] := \\
+& http://hl7.org/ValueSet/administrative-gender \\
+\end{align*}
+
+A un conjunto de tipos que define un recurso FHIR se denomina le esquema FHIR en este trabajo.

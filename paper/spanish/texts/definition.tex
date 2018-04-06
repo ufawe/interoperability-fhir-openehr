@@ -1,13 +1,41 @@
-\subsection{Etapa de definición}
+\subsubsection{Etapa de definición}
 
-Los esquemas openEHR son transformados a la sintaxis de ADL, creándose los arquetipos openEHR de recursos FHIR. Las estructuras de los recursos son representadas usando las clases openEHR CLUSTER para los tipos de datos FHIR complejos y openEHR ELEMENT para los tipos de datos FHIR primitivos.
+Se crea un arquetipo openEHR usando Archetype Definition Language (ADL) \cite{openEHRADL} según las definiciones de un esquema openEHR.
 
-Continuando con el ejemplo, el arquetipo creado a partir del esquema openEHR del recurso SimplifiedPatient se ilustra en la figura \ref{fig:definition}.
+Como identificador del nuevo arquetipo openEHR se usa un nombre de espacio fhir y el nombre del recurso FHIR que el esquema openEHR modela. Por ejemplo, el identificador del arquetipo openEHR del recurso SimplePatient es:
 
-\begin{figure}
-  \includegraphics[scale=0.5]{./images/definition}
-  \caption{Arquetipo del recurso SimplifiedPatient}
-  \label{fig:definition}
-\end{figure}
+\begin{lstlisting}
+fhir::openEHR-EHR-CLUSTER.SimplePatient.v1.0.0
+\end{lstlisting}
 
-Los nuevos arquetipos creados pueden ser considerados como arquetipos de integración similar al utilizado en la estrategia de integración basada en arquetipos \cite{openEHRIntegration}. En esta estrategia, los arquetipos de integración son utilizados para expresar los datos de las instancias de los recursos FHIR como instancias del modelo de referencia de openEHR. Estos arquetipos pueden ser utilizados por software openEHR o bien mapeados a arquetipos existentes utilizando herramientas de modelados de arquetipos.
+Para la sección de definición del nuevo arquetipo openEHR, se utiliza clases de openEHR para representar las estructuras de datos definidas por los tipos del esquema openEHR. La clase openEHR ELEMENT se usa para los tipos que en sus definiciones emplean clases openEHR que heredan de DATA\_VALUE, y la clase openEHR CLUSTER se usa para los demás tipos. Por ejemplo, la sección de definición del arquetipo openEHR del recurso SimplePatient usa las clases openEHR CLUSTER y openEHR ELEMENT para los tipos \(T_{SimplePatient}\) y \(T_{SimplePatient.gender}\) respectivamente:
+
+\begin{lstlisting}[mathescape=true]
+CLUSTER[id1] $\in$ {
+  items $\in$ {
+    ELEMENT[id2] occurrences $\in$ {0..1} $\in$ {
+      value $\in$ {
+        DV_TEXT[id3]
+      }
+    }
+  }
+}
+\end{lstlisting}
+
+Las definiciones de vinculación se agrega en la sección de vinculación de términos del nuevo arquetipo openEHR. Por ejemplo, la definición de vinculación del tipo \(T_{SimplePatient.gender.DV\_TEXT.value}\) del recurso SimplePatient se transcribe en la sección de vinculación de términos de su arquetipo openEHR equivalente:
+
+\begin{lstlisting}
+term_bindings = <
+  [``fhir"] = <
+    [``id3"] = <
+http://hl7.org/ValueSet/administrative-gender
+    >
+  >
+>
+\end{lstlisting}
+
+Un arquetipo openEHR permite la formación de caminos ADL, los cuales sirven para identificar elementos de los arquetipos openEHR \cite{openEHRArchitecture}. En esta etapa, se crea los caminos ADL del nuevo arquetipo openEHR y se relaciona con los caminos de los elementos de su recurso FHIR equivalente. Considerando el recuso de SimplePatient, la relación que se establece es:
+
+\begin{lstlisting}[mathescape=true]
+SimplePatient.gender $\Leftrightarrow$ /items[id2]/value[id3]
+\end{lstlisting}

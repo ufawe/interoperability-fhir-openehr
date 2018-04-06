@@ -1,10 +1,20 @@
-\subsection{Etapa de sustitución}
-A partir de los esquemas FHIR se generan los esquemas openEHR. Estos son conjuntos de tipos de openEHR definidos formalmente para modelar los recursos FHIR. Dicha generación se realiza al sustituir los tipos de datos de FHIR por los de openEHR siguiendo las equivalencias encontradas. Ambos esquemas conservan la jerarquía estructural y la semántica.
+\subsubsection{Etapa de sustitución}
 
-Continuando con el ejemplo del recurso SimplifiedPatient al realizar el reemplazo de los tipos de FHIR por sus equivalentes de openEHR, se obtiene el esquema openEHR ilustrado en la figura \ref{fig:substitution}.
+Se transfoma un esquema basado en tipos de datos FHIR generado en la etapa previa en un esquema basado en tipos de datos openEHR. La transformación es directa. Cada definición de un tipo de dato FHIR se reemplaza por una definición de tipo de dato openEHR equivalente. Cada definición de vinculación sobre un tipo de dato FHIR se sustituye por una definición de vinculación sobre un tipo de dato openEHR equivalente. Por ejemplo, el esquema FHIR del recurso SimplePatient se transforma al reemplazar la definición del tipo FHIR code por la definición del tipo openEHR DV\_TEXT equivalente en:
 
-\begin{figure}
-  \includegraphics[scale=0.5]{./images/substitution}
-  \caption{Esquema openEHR del recurso SimplifiedPatient}
-  \label{fig:substitution}
-\end{figure}
+\begin{align*}
+&T_{SimplePatient}:= \\
+&\qquad es\_SimplePatient\{T_{SimplePatient.gender}^{(0:1)}\} \\
+&T_{SimplePatient.gender}:= \\
+&\qquad es\_gender\{T_{SimplePatient.gender.DV\_TEXT}^{(1:1)}\} \\
+&T_{SimplePatient.gender.DV\_TEXT}:= \\
+&\qquad es\_DV\_TEXT\{T_{SimplePatient.gender.DV\_TEXT.value}^{(1:1)}\} \\
+&T_{SimplePatient.gender.DV\_TEXT.value}:= \\
+&\qquad es\_value\{T_{string}^{(1:1)}\} \\
+&[T_{SimplePatient.gender.DV\_TEXT.value}] := \\
+& http://hl7.org/ValueSet/administrative-gender \\
+&T_{string}:= \\
+&\qquad es\_string\{\epsilon\} \\
+\end{align*}
+
+A un esquema basado en tipos de datos openEHR se le denomina esquema openEHR en este trabajo. Como se observa, los esquemas FHIR y openEHR de SimplePatient conservan la misma estructura que la definida por el recurso SimplePatient.
