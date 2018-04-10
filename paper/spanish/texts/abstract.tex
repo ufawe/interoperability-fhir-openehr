@@ -1,13 +1,11 @@
 \begin{abstract}
 
-\textit{Objetivo:} Un factor crucial para lograr una mejor atención del paciente es compartir la información entre los sistemas de información que dan soporte al proceso asistencial por medio de estándares. En ámbito de la salud los estándares FHIR y openEHR ofrecen componentes para el intercambio de la información. Dado que ambos estándares utilizan estructuras jerárquicas basadas en tipos de datos es posible crear una estructura común que permita la interoperabilidad entre ellos.
+\textit{Propósito:} Crear arquetipos openEHR a partir de definiciones de recursos FHIR que permitan integrar repositorios que obedecen el modelo de referencia de openEHR a través de interfaces de FHIR.
 
-\textit{Materiales y Métodos:} Se propone encontrar las equivalencias entre los tipos de datos FHIR y las clases openEHR. Una equivalencia existe si se cumplen dos condiciones: 1) los valores del tipo de dato FHIR pueden ser almacenados dentro de los atributos de las clases openEHR, 2) se conserva el uso semántico de las clases openEHR. Adicional, se presenta un proceso automatizado para la creación de arquetipos openEHR a partir de recursos FHIR utilizando las equivalencias encontradas.
+\textit{Métodos:} Un prerrequisito para convertir instancias de recursos FHIR a instancias de arquetipos openEHR es encontrar equivalencias entre los tipos de datos FHIR y openEHR. Se propone las condiciones para establecer dichas equivalencias. Adicional, se presenta una forma de creación de arquetipos openEHR utilizando equivalencias de tipos.
 
-\textit{Resultados:} A partir de la revisión exhaustiva de las especificaciones de FHIR y openEHR se observa que ambos estándares comparten los mismos valores de dominio y se mantiene el propósito de las clases de openEHR. Los resultados del experimento realizado utilizando el proceso automático propuesto muestran una reducción significativa en el tiempo de creación de los arquetipos.
+\textit{Resultado:} Un proceso de creación automático basado en un sistema de tipos con soporte para vinculaciones a terminologías.
 
-\textit{Discusión:}
-
-\textit{Conclusión:} Ambos estándares comparten los mismos valores de dominio para sus tipos datos. Esto permite crear una estructura común que facilite la comunicación entre sistemas FHIR y openEHR. Las equivalencias presentadas y el proceso de creación automático propuesto podrán mejorar la interoperabilidad de sistemas FHIR y openEHR.
+\textit{Conclusión:} Existe compatibilidad completa entre los tipos de datos de FHIR y openEHR, posibilitando la creación de arquetipos openEHR de recursos FHIR.
 
 \end{abstract}
