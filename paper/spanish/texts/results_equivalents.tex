@@ -1,9 +1,9 @@
-\subsection{Equivalencias}
+\subsection{Equivalencias entre tipos de datos}
 
 A partir de una revisión exhaustiva de las especificaciones de FHIR y openEHR se encuentra las siguientes equivalencias (ver Cuadro \ref{table:equivalents}).
 
 \begin{table}
-  \caption{Equivalencias}
+  \caption{Equivalencias entre tipos de datos}
   \label{table:equivalents}
   \begin{tabular}{l l}
     \hline
@@ -29,6 +29,6 @@ A partir de una revisión exhaustiva de las especificaciones de FHIR y openEHR s
   \end{tabular}
 \end{table}
 
-Cabe mencionar que para todos los tipos de datos FHIR se encuentra su equivalente en openEHR, observándose que ambos estándares comparten los mismos valores de dominio.
+Cabe mencionar que para todos los tipos de datos FHIR se encuentra su equivalente en openEHR, observándose que ambos estándares comparten los mismos valores de dominio. Los tipos de datos openEHR listados en el Cuadro \ref{table:equivalents}, salvo el tipo DV\_QUANTITY, tienen un atributo value que soporta los valores de sus tipos de datos FHIR equivalentes. El tipo DV\_QUANTITY soporta los valores de sus tipos de datos FHIR equivalentes en su atributo magnitude. Una caso particular es la equivalencia entre el tipo String y el tipo DV\_TEXT. El tipo String puede contener los carácteres Unicode  de tab horizontal, retorno de carro y avance de línea, los cuales no están permitidos en el tipo DV\_TEXT.
 
 Además, se verifica a partir de las especificaciones que las clases de openEHR mantienen sus propósitos.
