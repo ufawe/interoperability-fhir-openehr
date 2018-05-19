@@ -2,16 +2,16 @@
 
 FHIR define diferentes categorías de tipos de datos que se usan para los elementos de los recursos \cite{FHIRDataTypes}. Entre los cuales, se encuentra los tipos de datos primitivos que permiten un solo valor primitivo de un dominio de valores definidos por cada tipo de dato. Las demás categorías son tipos de datos complejos que utilizan a los tipos de datos primitivos para su definición.
 
-openEHR describe un conjunto de tipos de datos que heredan de la clase DATA\_VALUE \cite{openEHRDataTypes}, la cual sirve como un ancestro común de todos los tipos de datos en openEHR.
+OpenEHR describe un conjunto de tipos de datos que heredan de la clase DATA\_VALUE \cite{openEHRDataTypes}, la cual sirve como un ancestro común de todos los tipos de datos en openEHR.
 
-Una equivalencia entre un tipo de dato primitivo de FHIR y un tipo de dato de openEHR que extiende de DATA\_VALUE existe si se cumplen las condiciones de:
+Una equivalencia entre un tipo de dato primitivo de FHIR y un tipo de dato de openEHR existe si se cumplen las condiciones de:
 
 \begin{enumerate}
   \item el dominio de valores del tipo de dato de FHIR puede ser almacenado dentro de uno de los atributos del tipo de dato de openEHR;
   \item el uso del tipo de dato de openEHR para el cual fue diseñado se conserva.
 \end{enumerate}
 
-Como un ejemplo, el tipo de FHIR boolean y el tipo de openEHR DV\_BOOLEAN reúnen ambas condiciones y, por lo tanto, son equivalentes:
+Como un ejemplo, el tipo de FHIR boolean y el tipo de openEHR DV\_BOOLEAN reúnen ambas condiciones, por lo tanto, son equivalentes:
 \begin{enumerate}
   \item los valores true y false del dominio de valores del tipo boolean pueden ser almacenados dentro del atributo value del tipo DV\_BOOLEAN;
   \item el uso de DV\_BOOLEAN, el cual especifica que el tipo se usa para elementos que son datos verdaderamente booleanos, se conserva.
