@@ -6,6 +6,7 @@ Un recurso FHIR se modela dentro de un sistema de tipos similar al desarrollado 
 T_t:=p_t\{h_t\}
 \end{align*}
 
+\noindent
 donde \(T_t\) es el nombre del tipo \(t\), \(p_t\) es el predicado que describe los valores soportados por el tipo \(t\) y \(h_t\) es un CML que especifica los elementos hijos que puede tener el tipo \(t\).
 
 La definición de un recurso FHIR \(R\) con elementos \(E_1\), \dots , \(E_2\) se abstrae con una definición de tipo como sigue:
@@ -14,14 +15,16 @@ La definición de un recurso FHIR \(R\) con elementos \(E_1\), \dots , \(E_2\) s
 T_R:=es\_R\{T_{E_1}^{(min_{E_1} \colon max_{E_1})} \dots T_{E_2}^{(min_{E_2} \colon max_{E_2})}\}
 \end{align*}
 
+\noindent
 donde \(T_{E_1}\) es el tipo que define el elemento \(E_1\), \(min_{E_1}\) y \(max_{E_1}\) son los límites inferior y superior respectivamente de las veces que se permite que el elemento \(E_1\) aparezca en el recurso \(R\). La diferencia con el CML introducido en \cite{Maldonado09} es que en la definición de un tipo no se utilizan las restricciones de longitud por no agregar información adicional a la definición de un recurso FHIR.
 
-Muchos elementos en los recursos FHIR tienen un valor codificado \cite{FHIRTerminology}. El conjunto de valores codificados que se permite en un elemento se conoce como un conjunto de valores. Una vinculación de un conjunto de valores establecido para un elemento se hace en la definición del elemento. Para modelar vinculaciones, se extiende el sistema de tipos presentado en \cite{Maldonado09}, agregando definiciones de vinculación. Una definición de vinculación es de la forma:
+Para modelar vinculaciones, se extiende el sistema de tipos presentado en \cite{Maldonado09}, agregando definiciones de vinculación. Una definición de vinculación es de la forma:
 
 \begin{align*}
 [T_E] := CV
 \end{align*}
 
+\noindent
 donde \(T_E\) es la definición del tipo del elemento al cual se le vincula el conjunto de valores \(CV\).
 
 Por ejemplo, al considerar el recurso SimplePatient (simplificación del recurso FHIR Patient \cite{FHIRPatient}) que modela un paciente que tiene un solo elemento gender del tipo code \cite{FHIRDataTypes} vinculado al conjunto de valores AdministrativeGender \cite{FHIRAdministrativeGender}, se modela por el conjunto de tipos:
