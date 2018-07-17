@@ -1,0 +1,19 @@
+\subsection{openEHR}
+
+El enfoque de openEHR para el modelado es multinivel. Los modelos son desarrollados y mantenidos por expertos de dominio en su propio nivel \cite{openEHRArchitecture}.
+
+El primer nivel se basa en el modelo de referencia. El modelo de de referencia corresponde al modelo de información invariable, por ejemplo, tipos de datos o estructuras de datos. Todos los datos EHR en cualquier sistema openEHR obedecen el modelo de referencia. Solo este primer nivel es implementado en software \cite{openEHRArchitecture}.
+
+El siguiente nivel consiste en los arquetipos. Los arquetipos corresponden a los contenidos del dominio, por ejemplo, medidas de la presión sanguínea o resultado HbAlc. Estos arquetipos son modelados por profesionales clínicos o expertos en informática de la salud sin ningún conocimiento tecnológico de los sistemas finales. Los arquetipos son almacenados en sus propios repositorios. Los arquetipos pueden tener relaciones de espacialización y composición. Los arquetipos especializados son creados restringiendo aún más las restricciones existentes de otros arquetipos. Los arquetipos compuestos son definidos a partir de otros arquetipos más pequeños \cite{openEHRArchitecture}.
+
+Las plantillas constituyen el siguiente nivel. Estas plantillas especifican grupos particulares de arquetipos que se usan para un propósito particular, y a menudo corresponden a formularios de pantalla \cite{openEHRArchitecture}.
+
+En el último nivel se encuentran los artefactos generados a partir de las plantillas. Estos artefactos pueden ser interfaces de programas, XSDs, componentes de interfaces de usuarios \cite{openEHR}.
+
+Cada arquetipo es un conjunto de restricciones en el modelo de referencia, definiendo un contenido de dominio \cite{openEHRArchitecture}. La definición de un arquetipo consiste en capas alternativas de nodos de restricción de objeto y atributo \cite{openEHRAOM}. Los diferentes tipos de nodos son: nodos de restricción de primitivos que restringen tipos de datos primitivos, nodos que representan referencias a otros nodos, nodos de referencia de restricción que hacen referencia a una restricción de texto en la parte de vinculación de restricción de la terminología del arquetipo, y nodos de restricción de arquetipo que representan restricciones en otros arquetipos permitidos para aparecer en un punto dado. Estas restricciones definen que configuraciones de instancias de clase de modelo de referencia se consideran conformes al arquetipo. Por ejemplo, ciertas configuraciones de las clases PARTY, ADDRESS, CLUSTER y ELEMENT pueden definirse por un arquetipo Person como estructuras permitidas para personas con identidad, contactos y direcciones.
+
+OpenEHR incluye un mecanismo de rutas. Las rutas son construidas usando la jerarquía de nodos objeto y atributo de un arquetipo en una sintaxis compatible con Xpath. Estas rutas pueden usarse para referenciar a cualquier nodo en un arquetipo \cite{openEHRArchitecture}.
+
+Los arquetipos proveen una forma de definir el significado de los datos, y de conectar los datos a terminologías conocidas como SNOMED CT, LOINC, ICPC, ICDx y muchas otras terminologías y vocabularios usados en salud \cite{openEHRArchitecture}.
+
+Los arquetipos son expresados en un genérico Lenguaje de Definición de Arquetipo \cite{openEHRADL} (ADL por sus siglas en inglés). ADL utiliza tres sintaxis: cADL (forma de restricción de ADL), ODIN (Notación de instancia de datos de objeto) y una versión de lógica de predicado de primer orden (FOPL por sus siglas en inglés). La sintaxis de cADL se utiliza para expresar la definición de los arquetipos, mientras que la sintaxis de ODIN se usar para expresar datos que aparecen en las secciones de idioma, descripción, terminología y revisión histórica de un arquetipo. Actualmente hay dos versiones principales existentes: 'ADL 1.4', la versión original, y 'ADL 2', una versión más moderna, que se está adoptando lentamente.

@@ -1,0 +1,17 @@
+\subsection{FHIR}
+
+FHIR define tipos de recursos para representar conceptos administrativos tales como paciente, proveedor, organización y dispositivo, así como conceptos clínicos que cubren problemas, medicamentos, diagnósticos, planes de atención y más \cite{FHIRResourceList}.
+
+Todos los recursos tienen en común las características de: una URL que identifica el recurso, una metainformación común, un texto legible por el ser humano para la seguridad clínica, un conjunto definido de elementos de datos por cada tipo de recurso, un marco para extender y adaptar los recursos existentes \cite{FHIRDeveloper}.
+
+Una definición de una estructura FHIR se hace por medio de un recurso StructureDefinition \cite{FHIRStructureDefinition}. Estas estructuras son usadas para describir los recursos, y se representan como listas planas de elementos. Cada elemento incluye una ruta, una cardinalidad y un tipo de dato \cite{FHIRElementDefinition}. La ruta es la propiedad más importante de la definición del elemento. Esta ruta localiza el elemento en una jerarquía definida dentro de la estructura. En algunos casos, los recursos StructureDefinition pueden usar conjuntos de valores para especificar el contenido de los elementos codificados.
+
+FHIR define recursos StructureDefinition para una serie de diferentes tipos de recursos. Por cada tipo de recurso, FHIR define un conjunto de elementos de datos diferente \cite{FHIRResource}. Cada uno de estos elementos de datos usa un tipo de dato. FHIR especifica diferentes categorías de tipos de datos \cite{FHIRDataTypes}. Entre los cuales, se encuentra los tipos de datos primitivos que permiten un solo valor. Las demás categorías son tipos de datos que tienen elementos hijos: tipos complejos de propósito general, tipos complejos para metadatos y tipos de propósito especial.
+
+Aparte de la definición de los recursos, FHIR define un conjunto de interfaces por las cuales los sistemas comparten los recursos. Los mecanismos de intercambio soportados por FHIR son: a través de una interfaz REST, mediante el intercambio de documentos, vía el envío y recepción de mensajes y la exposición e invocación de servicios \cite{FHIRClinician}.
+
+Dada la variabilidad en el espacio del cuidado de la salud y para evitar la proliferación de numerosos recursos superpuestos y redundantes, FHIR tiene una regla que, en la mayoría de los casos, un recurso solo incluirá elementos de datos si existe la expectativa de que la mayoría de las implementaciones usarán esos elementos de datos en particular. En caso contrario, los sistemas pueden usar extensiones en FHIR para capturar los elementos de datos pocos usados si lo necesitan \cite{FHIRArchitecture}.
+
+Otro aspecto de la variabilidad es que la misma información pueda estar representada de diferente forma y con un nivel distinto de detalle y granularidad. FHIR maneja este tipo de variabilidad definiendo perfiles sobre los tipos de recursos \cite{FHIRDeveloper}.
+
+FHIR incorpora mecanismos para la vinculación a terminología clínica, lo cual contribuye al uso de FHIR para lograr la interoperabilidad semántica \cite{FHIRArchitecture}.
