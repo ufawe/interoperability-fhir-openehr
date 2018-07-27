@@ -1,6 +1,16 @@
 \subsubsection{Modelado en openEHR}
 
-El enfoque de openEHR para el modelado es multinivel. Los modelos son desarrollados y mantenidos por expertos de dominio en su propio nivel \cite{openEHRArchitecture}. La figura \ref{fig:openeEHR_ecosystem} ilustra los diferentes niveles.
+El enfoque de openEHR para el modelado es multinivel. Los modelos son desarrollados y mantenidos por expertos de dominio en su propio nivel \cite{openEHRArchitecture}.
+
+El primer nivel se basa en el modelo de referencia. El modelo de referencia corresponde al modelo de información estable, por ejemplo, tipos de datos o estructuras de datos. Todos los datos EHR en cualquier sistema openEHR obedecen el modelo de referencia. Solo este primer nivel es implementado en software \cite{openEHRArchitecture}.
+
+El siguiente nivel consiste en los arquetipos. Los arquetipos corresponden a los contenidos del dominio, por ejemplo, medidas de la presión sanguínea o resultado de la prueba para diabetes. Estos arquetipos son modelados por profesionales clínicos o expertos en informática de la salud sin ningún conocimiento tecnológico de los sistemas finales. Los arquetipos son almacenados en sus propios repositorios.
+
+Las plantillas constituyen el siguiente nivel. Estas plantillas especifican grupos de arquetipos que se usan para un propósito particular, y a menudo corresponden a formularios de pantalla \cite{openEHRArchitecture}.
+
+En el último nivel se encuentran los artefactos generados a partir de las plantillas. Estos artefactos pueden ser interfaces de programas, XSDs, componentes de interfaces de usuarios \cite{openEHR}.
+
+La Figura \ref{fig:openeEHR_ecosystem} ilustra el modelado multinivel.
 
 \begin{figure}[h]
   \centering
@@ -8,11 +18,3 @@ El enfoque de openEHR para el modelado es multinivel. Los modelos son desarrolla
   \caption{Enfoque openEHR}
   \label{fig:openeEHR_ecosystem}
 \end{figure}
-
-El primer nivel se basa en el modelo de referencia. El modelo de referencia corresponde al modelo de información estable, por ejemplo, tipos de datos o estructuras de datos. Todos los datos EHR en cualquier sistema openEHR obedecen el modelo de referencia. Solo este primer nivel es implementado en software \cite{openEHRArchitecture}.
-
-El siguiente nivel consiste en los arquetipos. Los arquetipos corresponden a los contenidos del dominio, por ejemplo, medidas de la presión sanguínea o resultado de la prueba para diabetes. Estos arquetipos son modelados por profesionales clínicos o expertos en informática de la salud sin ningún conocimiento tecnológico de los sistemas finales. Los arquetipos son almacenados en sus propios repositorios.
-
-Las plantillas constituyen el siguiente nivel. Estas plantillas especifican grupos particulares de arquetipos que se usan para un propósito particular, y a menudo corresponden a formularios de pantalla \cite{openEHRArchitecture}.
-
-En el último nivel se encuentran los artefactos generados a partir de las plantillas. Estos artefactos pueden ser interfaces de programas, XSDs, componentes de interfaces de usuarios \cite{openEHR}.

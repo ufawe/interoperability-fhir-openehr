@@ -2,7 +2,14 @@
 
 El proceso automatizado se basa en la formalización propuesta en \cite{Maldonado09}, la cual para la definición de la sección de arquetipos usa un sistema de tipos sobre una estructura de árbol. El sistema de tipos modela las restricciones estructurales impuestas por los arquetipos sobre el modelo de referencia. La base de este sistema de tipos es la lista de multiplicidad restringida (CML por sus siglas en inglés). El CML es un lenguaje de definición que dentro de la definición del tipo especifica la secuencia válida de hijos de un nodo atributo o objeto de un arquetipo.
 
-El proceso automatizado se divide en 3 etapas: abstracción, sustitución y definición, las cuales se repiten por cada arquetipo openEHR a crearse a partir de cada recurso FHIR. La figura \ref{fig:solution} ilustra el proceso automatizado desarrollado.
+El proceso automatizado se divide en 3 etapas: abstracción, sustitución y definición, las cuales se repiten por cada arquetipo openEHR a crearse a partir de cada recurso FHIR. La Figura \ref{fig:solution} ilustra el proceso automatizado desarrollado.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.5]{./images/solution}
+  \caption{Proceso automatizado}
+  \label{fig:solution}
+\end{figure}
 
 \input{./texts/abstraction.tex}
 
