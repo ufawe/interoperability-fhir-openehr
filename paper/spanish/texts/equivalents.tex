@@ -1,6 +1,8 @@
 \subsection{Equivalencias entre tipos de datos}
 
-Una equivalencia entre un tipo de dato primitivo de FHIR y un tipo de dato de openEHR existe si se cumplen las condiciones de:
+La definición de un elemento en un recurso FHIR incluye tipo de dato \cite{FHIRElement}. Por lo tanto, un prerequisito es encontrar equivalencias entre tipos de datos FHIR y tipos de datos openEHR. Las equivalencias permitirán crear arquetipos openEHR a partir de definiciones de recursos FHIR.
+
+La equivalencia entre un tipo de dato primitivo de FHIR y un tipo de dato de openEHR existe si se cumplen las condiciones de:
 
 \begin{enumerate}
   \item el dominio de valores del tipo de dato de FHIR puede ser almacenado dentro de uno de los atributos del tipo de dato de openEHR;
@@ -9,7 +11,7 @@ Una equivalencia entre un tipo de dato primitivo de FHIR y un tipo de dato de op
 
 Las equivalencias se encuentra al realizar una revisión manual exhaustiva del conjunto de tipos de datos primitivos de FHIR \cite{FHIRDataTypes} y del Modelo de Información de Tipos de Datos de openEHR \cite{openEHRDataTypes}.
 
-Como un ejemplo, el tipo de FHIR boolean y el tipo de openEHR DV\_BOOLEAN reúnen ambas condiciones, por lo tanto, son equivalentes:
+Como ejemplo, el tipo de FHIR boolean y el tipo de openEHR DV\_BOOLEAN reúnen ambas condiciones, por lo tanto, son equivalentes:
 \begin{enumerate}
   \item los valores true y false del dominio de valores del tipo boolean pueden ser almacenados dentro del atributo value del tipo DV\_BOOLEAN;
   \item el uso de DV\_BOOLEAN, el cual especifica que el tipo se usa para elementos que son datos verdaderamente booleanos, es el mismo uso que tiene el tipo de dato boolean.

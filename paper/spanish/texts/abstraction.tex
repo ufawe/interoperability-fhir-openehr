@@ -1,6 +1,6 @@
 \subsubsection{Etapa de abstracción}
 
-Un recurso FHIR se modela dentro de un sistema de tipos similar al desarrollado en \cite{Maldonado09}. Un elemento de un recurso FHIR se abstrae por un tipo que describe su estructura. Una definición de un tipo es de la forma:
+El recurso FHIR se modela dentro de un sistema de tipos similar al desarrollado en \cite{Maldonado09}. Cada elemento del recurso FHIR se abstrae por el tipo que describe su estructura. Una definición de un tipo es de la forma:
 
 \begin{align*}
 T_t:=p_t\{h_t\}
@@ -9,14 +9,14 @@ T_t:=p_t\{h_t\}
 \noindent
 donde \(T_t\) es el nombre del tipo \(t\), \(p_t\) es el predicado que describe los valores soportados por el tipo \(t\) y \(h_t\) es un CML que especifica los elementos hijos que puede tener el tipo \(t\).
 
-La definición de un recurso FHIR \(R\) con elementos \(E_1\), \dots , \(E_2\) se abstrae con una definición de tipo como sigue:
+La definición del recurso FHIR \(R\) con elementos \(E_1\), \dots , \(E_2\) se abstrae con la definición de tipo como sigue:
 
 \begin{align*}
 T_R:=es\_R\{T_{E_1}^{(min_{E_1} \colon max_{E_1})} \dots T_{E_2}^{(min_{E_2} \colon max_{E_2})}\}
 \end{align*}
 
 \noindent
-donde \(T_{E_1}\) es el tipo que define el elemento \(E_1\), \(min_{E_1}\) y \(max_{E_1}\) son los límites inferior y superior respectivamente de las veces que se permite que el elemento \(E_1\) aparezca en el recurso \(R\). La diferencia con el CML introducido en \cite{Maldonado09} es que en la definición de un tipo no se utilizan las restricciones de longitud por no agregar información adicional a la definición de un recurso FHIR.
+donde \(T_{E_1}\) es el tipo que define el elemento \(E_1\), \(min_{E_1}\) y \(max_{E_1}\) son los límites inferior y superior respectivamente de las veces que se permite que el elemento \(E_1\) aparezca en el recurso \(R\). La diferencia con el CML introducido en \cite{Maldonado09} es que en la definición de un tipo no se utilizan las restricciones de longitud por no agregar información adicional a la abstracción de un recurso FHIR.
 
 Para modelar vinculaciones, se extiende el sistema de tipos presentado en \cite{Maldonado09}, agregando definiciones de vinculación. Una definición de vinculación es de la forma:
 
@@ -40,4 +40,4 @@ Por ejemplo, al considerar el recurso SimplePatient (simplificación del recurso
 & http://hl7.org/ValueSet/administrative-gender \\
 \end{align*}
 
-A un conjunto de tipos que define un recurso FHIR se denomina esquema FHIR en este trabajo.
+Un conjunto de tipos que define un recurso FHIR se denomina esquema FHIR en este trabajo.

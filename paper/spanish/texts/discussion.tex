@@ -5,8 +5,8 @@ Intercambiar datos es uno de los requisitos más básicos que openEHR busca sati
 El trabajo presentado resuelve la correspondencia estructural creando arquetipos de integración similares a lo expuesto en \cite{openEHRArchitecture}. Estos arquetipos creados se caracterizan por:
 
 \begin{enumerate}
-  \item estar basados en las clases CLUSTER y ELEMENT,
-  \item estar diseñados para copiar la estructura de datos de recursos FHIR existentes,
+  \item estar basados en las clases CLUSTER y ELEMENT;
+  \item estar diseñados para copiar la estructura de datos de recursos FHIR existentes;
   \item existe un arquetipo de integración por recurso FHIR compartido.
 \end{enumerate}
 
@@ -22,6 +22,6 @@ De forma a resolver la compatibilidad entre tipos de datos de FHIR y openEHR, se
 
 Una forma de solventar el caso particular de la equivalencia entre el tipo String y el tipo DV\_TEXT es que en la conversión de datos de estos caracteres no impresos se sustituya por su codificación en Unicode para que se pueda almacenar como texto dentro del tipo DV\_TEXT y cuando se recuperen se vuelvan a convertir a su valor original. De esta forma se garantiza que no habrá pérdida de información.
 
-Medicina es un dominio cambiante. Por lo tanto, proveer un proceso de creación automática de arquetipos de integración que ahorre tiempo y reduzca errores es de gran utilidad para el personal técnico. El experimento realizado mostró una reducción significativa en el tiempo de creación usando el proceso automático.
+Medicina es un dominio cambiante. Por lo tanto, proveer un proceso de creación automática de arquetipos de integración que ahorre tiempo y reduzca errores es de gran utilidad para el personal técnico. El experimento realizado mostró una reducción significativa en el tiempo de creación usando el proceso automatizado.
 
-En conclusión, las equivalencias de tipos y el proceso automático podrán mejorar la interoperabilidad de sistemas FHIR y openEHR, siendo un siguiente paso verificar la posibilidad de crear recursos FHIR de arquetipos openEHR utilizando las equivalencias presentadas y el proceso propuesto en este trabajo.
+En conclusión, las equivalencias de tipos y el proceso automatizado podrán mejorar la interoperabilidad de sistemas FHIR y openEHR, siendo un siguiente paso verificar la posibilidad de crear recursos FHIR de arquetipos openEHR utilizando las equivalencias presentadas y el proceso propuesto en este trabajo.

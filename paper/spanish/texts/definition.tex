@@ -34,7 +34,7 @@ http://hl7.org/ValueSet/administrative-gender
 >
 \end{lstlisting}
 
-Un arquetipo openEHR permite la formación de rutas ADL, los cuales sirven para identificar elementos de los arquetipos openEHR \cite{openEHRArchitecture}. En esta etapa, se crea las rutas ADL del nuevo arquetipo openEHR y se relaciona con las rutas de los elementos de su recurso FHIR equivalente. Considerando el recuso de SimplePatient, la relación que se establece es:
+Los arquetipos openEHR permiten las formaciones de rutas ADL, las cuales sirven para identificar elementos de los arquetipos openEHR \cite{openEHRArchitecture}. En esta etapa, se crea las rutas ADL del nuevo arquetipo openEHR y se relaciona con las rutas de los elementos de su recurso FHIR equivalente. Considerando el recuso de SimplePatient, la relación que se establece es:
 
 \begin{lstlisting}[mathescape=true]
 SimplePatient.gender $\Leftrightarrow$ /items[id2]/value[id3]
