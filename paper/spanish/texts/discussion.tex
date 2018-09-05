@@ -1,8 +1,8 @@
 \section{Conclusión}
 
-Intercambiar datos es uno de los requisitos más básicos que openEHR busca satisfacer. Importar y exportar datos por medio de interfaces FHIR sobre repositorios openEHR requiere una conversión de datos. Técnicamente, exiten 2 temas a resolver que son la correspondencia a nivel de estructura y la compatibilidad a nivel de tipo de dato.
+Intercambiar datos es uno de los requisitos más básicos que openEHR busca satisfacer. Importar y exportar datos por medio de interfaces FHIR sobre repositorios openEHR requiere una conversión de datos. Técnicamente, exiten 2 temas a resolver que son la equivalencia a nivel de estructura y la compatibilidad a nivel de tipo de dato.
 
-El trabajo presentado resuelve la correspondencia estructural creando arquetipos de integración similares a lo expuesto en \cite{openEHRArchitecture}. Estos arquetipos creados se caracterizan por:
+El trabajo presentado resuelve la equivalencia estructural creando arquetipos de integración similares a lo expuesto en \cite{openEHRArchitecture}. Estos arquetipos creados se caracterizan por:
 
 \begin{enumerate}
   \item estar basados en las clases CLUSTER y ELEMENT;
@@ -18,7 +18,7 @@ En esta estrategia de integración existe la desventaja de tener que crear arque
 
 Un problema a resolver es la definición recursiva de recursos FHIR y que en arquetipos openEHR no está permitida. Una forma de resolver es limitando la profundidad de recursividad. Otras formas de solución requieren más trabajo futuro.
 
-De forma a resolver la compatibilidad entre tipos de datos de FHIR y openEHR, se propuso una definición de equivalencia con 2 condiciones. La primera condición garantiza que todo dato FHIR puede ser convertido en un dato openEHR. La segunda condición asegura que los datos convertidos puedan ser procesados correctamente.
+De forma a resolver la compatibilidad entre tipos de datos FHIR y openEHR, se propuso una definición de equivalencia con 2 condiciones. La primera condición garantiza que todo dato FHIR puede ser convertido en un dato openEHR. La segunda condición asegura que los datos convertidos puedan ser procesados correctamente.
 
 Una forma de solventar el caso particular de la equivalencia entre el tipo String y el tipo DV\_TEXT es que en la conversión de datos de estos caracteres no impresos se sustituya por su codificación en Unicode para que se pueda almacenar como texto dentro del tipo DV\_TEXT y cuando se recuperen se vuelvan a convertir a su valor original. De esta forma se garantiza que no habrá pérdida de información.
 

@@ -24,15 +24,15 @@ CLUSTER[id1] $\in$ {
 
 Las definiciones de vinculación se agrega en la sección de vinculación de términos del nuevo arquetipo openEHR. Por ejemplo, la definición de vinculación del tipo \(T_{SimplePatient.gender.DV\_TEXT.value}\) del recurso SimplePatient se transcribe en la sección de vinculación de términos de su arquetipo openEHR equivalente:
 
-\begin{lstlisting}
+\begin{lstlisting}[escapechar=$]
 term_bindings = <
   [``fhir"] = <
-    [``id3"] = <
-http://hl7.org/ValueSet/administrative-gender
-    >
+    [``id3"] = < URL$\footnotemark$ >
   >
 >
 \end{lstlisting}
+
+\footnotetext{https://www.hl7.org/fhir/valueset-administrative-gender.html}
 
 Los arquetipos openEHR permiten las formaciones de rutas ADL, las cuales sirven para identificar elementos de los arquetipos openEHR \cite{openEHRArchitecture}. En esta etapa, se crea las rutas ADL del nuevo arquetipo openEHR y se relaciona con las rutas de los elementos de su recurso FHIR equivalente. Considerando el recuso de SimplePatient, la relación que se establece es:
 

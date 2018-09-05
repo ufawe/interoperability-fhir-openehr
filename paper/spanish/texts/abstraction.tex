@@ -1,6 +1,6 @@
 \subsubsection{Etapa de abstracción}
 
-El recurso FHIR se modela dentro de un sistema de tipos similar al desarrollado en \cite{Maldonado09}. Cada elemento del recurso FHIR se abstrae por el tipo que describe su estructura. Una definición de un tipo es de la forma:
+El recurso FHIR se modela dentro de un sistema de tipos similar al desarrollado en \cite{Maldonado09}. Cada elemento del recurso FHIR se abstrae por el tipo que describe su estructura. La definición de un tipo es de la forma:
 
 \begin{align*}
 T_t:=p_t\{h_t\}
@@ -37,7 +37,8 @@ Por ejemplo, al considerar el recurso SimplePatient (simplificación del recurso
 &T_{SimplePatient.gender.code}:= \\
 &\qquad es\_code\{\epsilon\} \\
 &[T_{SimplePatient.gender.code}] := \\
-& http://hl7.org/ValueSet/administrative-gender \\
+&\qquad URL \footnotemark \\
 \end{align*}
 
+\footnotetext{https://www.hl7.org/fhir/valueset-administrative-gender.html}
 Un conjunto de tipos que define un recurso FHIR se denomina esquema FHIR en este trabajo.

@@ -1,16 +1,8 @@
 \subsubsection{Arquetipos}
 
-Cada arquetipo es un conjunto de restricciones en el modelo de referencia, definiendo un contenido de dominio \cite{openEHRArchitecture}. La definición de un arquetipo consiste en capas alternativas de nodos de restricción de objeto y atributo \cite{openEHRAOM}. Los diferentes nodos son:
-\begin{itemize}
-  \item nodos de restricción de primitivos que restringen tipos de datos primitivos;
-  \item nodos que representan referencias a otros nodos;
-  \item nodos de referencia de restricción que hacen referencia a una restricción de texto en la parte de vinculación de restricción de la terminología del arquetipo;
-  \item nodos de restricción de arquetipo que representan restricciones en otros arquetipos permitidos para aparecer en un punto dado.
-\end{itemize}
+Cada arquetipo es un conjunto de restricciones en el modelo de referencia, definiendo un contenido de dominio \cite{openEHRArchitecture}. Las restricciones definen configuraciones de instancias del modelo de referencia consideradas conformes al arquetipo. Por ejemplo, ciertas configuraciones de las clases PARTY, ADDRESS, CLUSTER y ELEMENT pueden definirse por un arquetipo Person como estructuras permitidas para personas con identidad, contactos y direcciones \cite{openEHRAOM}.
 
-Las restricciones de los nodos definen que configuraciones de instancias de la clase de modelo de referencia se consideran conformes al arquetipo. Por ejemplo, ciertas configuraciones de las clases PARTY, ADDRESS, CLUSTER y ELEMENT pueden definirse por un arquetipo Person como estructuras permitidas para personas con identidad, contactos y direcciones.
-
-Los arquetipos pueden tener relaciones de especialización y/o composición. Los arquetipos especializados son creados restringiendo aún más las restricciones existentes de otros arquetipos. Los arquetipos compuestos son definidos a partir de otros arquetipos más pequeños \cite{openEHRArchitecture}.
+Los arquetipos pueden tener relaciones de especialización y/o composición. Los arquetipos especializados son creados restringiendo aún más las restricciones existentes de otros arquetipos. Los arquetipos compuestos son definidos a partir de otros arquetipos \cite{openEHRArchitecture}.
 
 OpenEHR incluye un mecanismo de rutas. Las rutas son construidas usando la jerarquía de nodos objeto y atributo de un arquetipo en una sintaxis compatible con Xpath. Estas rutas pueden usarse para referenciar a cualquier nodo en un arquetipo \cite{openEHRArchitecture}.
 

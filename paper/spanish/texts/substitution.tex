@@ -1,6 +1,28 @@
 \subsubsection{Etapa de sustitución}
 
-El esquema basado en tipos de datos FHIR generado en la etapa previa se transforma en un esquema basado en tipos de datos openEHR. La transformación es directa. Cada definición de un tipo de dato FHIR se reemplaza por una definición de tipo de dato openEHR equivalente. Cada definición de vinculación sobre un tipo de dato FHIR se sustituye por una definición de vinculación sobre un tipo de dato openEHR equivalente.
+El esquema basado en tipos de datos FHIR generado en la etapa previa se transforma en un esquema basado en tipos de datos openEHR. Si se considera las definiciones de un tipo FHIR y de un tipo openEHR:
+
+\begin{align*}
+&T_{FHIR}:=p\_FHIR\{h_{FHIR}\} \\
+&T_{OPENEHR}:=p\_OPENEHR\{h_{OPENERH}\}
+\end{align*}
+
+\noindent
+Y existe una equivalencia entre ambos tipos según las condiciones mencionadas en la sección equivalencias entre tipos de datos:
+
+\begin{align*}
+&T_{FHIR} = T_{OPENEHR}
+\end{align*}
+
+\noindent
+Entonces por relación transitiva:
+
+\begin{align*}
+p\_FHIR\{h_{FHIR}\} = p\_OPENEHR\{h_{OPENEHR}\}
+\end{align*}
+
+\noindent
+Por tanto ambas expresiones son intercambiables entre sí y la sustitución es directa. Cada definición de un tipo de dato FHIR se reemplaza por una definición de tipo de dato openEHR equivalente. Cada definición de vinculación sobre un tipo de dato FHIR se sustituye por una definición de vinculación sobre un tipo de dato openEHR equivalente.
 
 Por ejemplo, el esquema FHIR del recurso SimplePatient se transforma al reemplazar la definición del tipo FHIR code por la definición del tipo openEHR DV\_TEXT equivalente en:
 
@@ -14,9 +36,10 @@ Por ejemplo, el esquema FHIR del recurso SimplePatient se transforma al reemplaz
 &T_{SimplePatient.gender.DV\_TEXT.value}:= \\
 &\qquad es\_value\{T_{string}^{(1:1)}\} \\
 &[T_{SimplePatient.gender.DV\_TEXT.value}] := \\
-& http://hl7.org/ValueSet/administrative-gender \\
+&\qquad URL \footnotemark \\
 &T_{string}:= \\
 &\qquad es\_string\{\epsilon\} \\
 \end{align*}
 
+\footnotetext{https://www.hl7.org/fhir/valueset-administrative-gender.html}
 Un esquema basado en tipos de datos openEHR se le denomina esquema openEHR en este trabajo. Como se observa, los esquemas FHIR y openEHR de SimplePatient conservan la misma estructura que la definida por el recurso SimplePatient.

@@ -2,14 +2,14 @@
 
 La definición de un elemento en un recurso FHIR incluye tipo de dato \cite{FHIRElement}. Por lo tanto, un prerequisito es encontrar equivalencias entre tipos de datos FHIR y tipos de datos openEHR. Las equivalencias permitirán crear arquetipos openEHR a partir de definiciones de recursos FHIR.
 
-La equivalencia entre un tipo de dato primitivo de FHIR y un tipo de dato de openEHR existe si se cumplen las condiciones de:
+Dada la función \( f(x) \) que retorna el dominio de valores que se le puede asignar a un dato \( x \), \( A \) el conjunto de atributos del tipo de dato de openEHR \( o \), la equivalencia entre el tipo de dato primitivo de FHIR \( p \)  y el tipo de dato de openEHR \( o \) existe si se cumplen las condiciones de:
 
 \begin{enumerate}
-  \item el dominio de valores del tipo de dato de FHIR puede ser almacenado dentro de uno de los atributos del tipo de dato de openEHR;
-  \item el uso del tipo de dato de FHIR es el mismo que el uso del tipo de dato de openEHR.
+  \item \( \exists a \in A \land f(a) \supseteq f(p) \);
+  \item el uso de \( o \) es el mismo uso de \( p \).
 \end{enumerate}
 
-Las equivalencias se encuentra al realizar una revisión manual exhaustiva del conjunto de tipos de datos primitivos de FHIR \cite{FHIRDataTypes} y del Modelo de Información de Tipos de Datos de openEHR \cite{openEHRDataTypes}.
+Las equivalencias se encuentran al realizar una revisión manual exhaustiva del conjunto de tipos de datos primitivos de FHIR \cite{FHIRDataTypes} y del Modelo de Información de Tipos de Datos de openEHR \cite{openEHRDataTypes}.
 
 Como ejemplo, el tipo de FHIR boolean y el tipo de openEHR DV\_BOOLEAN reúnen ambas condiciones, por lo tanto, son equivalentes:
 \begin{enumerate}
@@ -17,4 +17,4 @@ Como ejemplo, el tipo de FHIR boolean y el tipo de openEHR DV\_BOOLEAN reúnen a
   \item el uso de DV\_BOOLEAN, el cual especifica que el tipo se usa para elementos que son datos verdaderamente booleanos, es el mismo uso que tiene el tipo de dato boolean.
 \end{enumerate}
 
-Los tipos de datos complejos de FHIR al estar compuestos por elementos con tipos de datos complejos o tipos de datos primitivos no requieren una equivalencia a nivel de tipo de dato.
+Solo los tipos de datos primitivos de FHIR requieren una equivalencia con los tipos de datos openEHR.

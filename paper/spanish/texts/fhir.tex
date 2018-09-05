@@ -15,13 +15,13 @@ Los recursos se describen usando recursos StructureDefinition \cite{FHIRStructur
 
 La ruta del elemento de dato es la propiedad más importante de la definición del elemento. Esta ruta localiza el elemento en una jerarquía definida dentro del recurso \cite{FHIRElementDefinition}.
 
-El tipo de dato del elemento de dato puede ser un tipo de dato primitivo o un tipo de dato complejo \cite{FHIRDataTypes}. La diferencia entre ambos tipos de datos es que el primitivo permite un solo valor para el elemento,  mientras que el complejo puede tener elementos hijos. Dentro de los tipos de datos complejos se encuentran: los de propósito general,  los tipos para metadatos y los de propósito especial.
+El tipo de dato del elemento de dato puede ser primitivo o complejo \cite{FHIRDataTypes}. La diferencia entre ambos tipos de datos es que el primitivo permite un solo valor para el elemento,  mientras que el complejo puede tener elementos hijos. Dentro de los tipos de datos complejos se encuentran: los de propósito general,  los tipos para metadatos y los de propósito especial.
 
-Cada elemento de dato puede ser extendido o restringido \cite{FHIRProfiling}. El elemento de dato se extiende para representar información adicional que no forma parte de la definición del recurso\cite{FHIRExtensibility}. Cada recurso solo incluye elementos de datos si existe la expectativa de que la mayoría de las implementaciones usarán esos elementos de datos en particular \cite{FHIRArchitecture}. El elemento de dato se restringue cambiando su cardinalidad.
+Cada elemento de dato puede ser extendido o restringido \cite{FHIRProfiling}. El elemento de dato se extiende para representar información adicional que no forma parte de la definición del recurso\cite{FHIRExtensibility}. Cada recurso solo incluye elementos de datos si la mayoría de las implementaciones usarán esos elementos de datos en particular \cite{FHIRArchitecture}. El elemento de dato se restringe cambiando su cardinalidad.
 
 Los recursos soportan la vinculación a terminología clínica, lo cual contribuye al uso de FHIR para lograr la interoperabilidad semántica \cite{FHIRArchitecture}.
 
-Aparte de las definiciones de los recursos, FHIR define un conjunto de interfaces por las cuales los sistemas comparten los recursos. Los mecanismos de intercambio soportados son \cite{FHIRClinician}:
+Aparte de las definiciones de los recursos, FHIR define un conjunto de interfaces por las cuales los sistemas comparten los recursos. Los mecanismos de intercambio soportados son los siguientes \cite{FHIRClinician}:
 \begin{itemize}
   \item a través de una interfaz REST;
   \item mediante el intercambio de documentos;
