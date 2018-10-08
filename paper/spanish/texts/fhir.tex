@@ -15,7 +15,7 @@ Los recursos se describen usando recursos StructureDefinition \cite{FHIRStructur
 
 La ruta del elemento de dato es la propiedad más importante de la definición del elemento. Esta ruta localiza el elemento en una jerarquía definida dentro del recurso \cite{FHIRElementDefinition}.
 
-El tipo de dato del elemento de dato puede ser primitivo o complejo \cite{FHIRDataTypes}. La diferencia entre ambos tipos de datos es que el primitivo permite un solo valor para el elemento,  mientras que el complejo puede tener elementos hijos. Dentro de los tipos de datos complejos se encuentran: los de propósito general,  los tipos para metadatos y los de propósito especial.
+El tipo de dato del elemento de dato puede ser primitivo o complejo \cite{FHIRDataTypes}. La diferencia entre ambos tipos de datos es que el primitivo permite un solo valor para el elemento,  mientras que el complejo puede tener elementos hijos. Cada tipo de dato primitivo es una 3-tupla, que consiste en a) un dominio de valores, que incluye la definición del tipo de dato, b) una representación XML y c) una representación JSON. Dentro de los tipos de datos complejos se encuentran: los de propósito general, los tipos para metadatos y los de propósito especial.
 
 Cada elemento de dato puede ser extendido o restringido \cite{FHIRProfiling}. El elemento de dato se extiende para representar información adicional que no forma parte de la definición del recurso\cite{FHIRExtensibility}. Cada recurso solo incluye elementos de datos si la mayoría de las implementaciones usarán esos elementos de datos en particular \cite{FHIRArchitecture}. El elemento de dato se restringe cambiando su cardinalidad.
 
