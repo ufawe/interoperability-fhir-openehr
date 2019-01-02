@@ -36,10 +36,9 @@ Por ejemplo, el esquema FHIR del recurso SimplePatient se transforma al reemplaz
 &T_{SimplePatient.gender.DV\_TEXT.value}:= \\
 &\qquad es\_value\{T_{string}^{(1:1)}\} \\
 &[T_{SimplePatient.gender.DV\_TEXT.value}] := \\
-&\qquad URL \footnotemark \\
+&\qquad URL \footnotemark[1] \\
 &T_{string}:= \\
 &\qquad es\_string\{\epsilon\} \\
 \end{align*}
 
-\footnotetext{https://www.hl7.org/fhir/valueset-administrative-gender.html}
 Un esquema basado en tipos de datos openEHR se le denomina esquema openEHR en este trabajo. Como se observa, los esquemas FHIR y openEHR de SimplePatient conservan la misma estructura que la definida por el recurso SimplePatient.
