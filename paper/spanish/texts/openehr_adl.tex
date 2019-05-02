@@ -1,5 +1,9 @@
 \subsubsection{Lenguaje de Definición de Arquetipo}
 
-Los arquetipos son expresados en el Lenguaje de Definición de Arquetipo \cite{openEHRADL} (ADL por sus siglas en inglés). ADL utiliza tres sintaxis: cADL (forma de restricción de ADL), ODIN (notación de instancia de datos de objeto) y una versión de lógica de predicado de primer orden (FOPL por sus siglas en inglés). La sintaxis de cADL se utiliza para expresar la definición de los arquetipos, mientras que la sintaxis de ODIN se usa para expresar datos que aparecen en las secciones de idioma, descripción, terminología y revisión histórica de un arquetipo.
+Los arquetipos son expresados en el Lenguaje de Definición de Arquetipo \cite{openEHRADL} (ADL por sus siglas en inglés). ADL utiliza tres sintaxis: cADL (forma de restricción de ADL), ODIN (notación de instancia de datos de objeto) y una versión de lógica de predicado de primer orden (FOPL por sus siglas en inglés).
+
+Las restricciones de cADL se escriben en un estilo estructurado en bloques, similar a los lenguajes de programación estructurados en bloques como C. Cada bloque se introduce mediante un identificador de un modelo de información de openEHR. Los identificadores alternan entre los nombres de tipo conocidos como bloques de objetos o nodos de objeto y los nombres de atributos de tipo conocidos como bloques de atributo o nodos de atributos. El uso de nodos de objeto permite la formación de rutas de arquetipo, que se pueden utilizar para hacer de forma inequívoca a nodos de objetos dentro del mismo arquetipo \cite{openEHRADL}.
+
+La sintaxis de cADL se utiliza para expresar la definición de los arquetipos, mientras que la sintaxis de ODIN se usa para expresar datos que aparecen en las secciones de idioma, descripción, terminología y revisión histórica de un arquetipo.
 
 Actualmente hay dos versiones principales existentes: `ADL 1.4', la versión original, y `ADL 2', una versión más moderna, que se está adoptando lentamente.

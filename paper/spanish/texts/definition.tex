@@ -8,7 +8,7 @@ Como identificador del nuevo arquetipo openEHR se usa un nombre de espacio fhir 
 fhir::openEHR-EHR-CLUSTER.SimplePatient.v1.0.0
 \end{lstlisting}
 
-Para la sección de definición del nuevo arquetipo openEHR, los tipos del esquema openEHR abstraídos de tipos primitivos de FHIR son expresados usando la estructura ELEMENT, y los demás tipos del esquema openEHR son expresados usando la estructura CLUSTER. Ambas estructuras pertenecen del Modelo de Información de Estructuras de Datos de openEHR \cite{openEHRDataStructures}. Por ejemplo, la sección de definición del arquetipo openEHR del recurso SimplePatient usa las clases openEHR CLUSTER y openEHR ELEMENT para los tipos \(T_{SimplePatient}\) y \(T_{SimplePatient.gender}\) respectivamente:
+Para la sección de definición del nuevo arquetipo openEHR, los tipos del esquema openEHR abstraídos de tipos primitivos de FHIR son expresados usando la estructura ELEMENT, y los demás tipos del esquema openEHR son expresados usando la estructura CLUSTER. Ambas estructuras pertenecen al Modelo de Información de Estructuras de Datos de openEHR \cite{openEHRDataStructures}. Por ejemplo, la sección de definición del arquetipo openEHR del recurso SimplePatient usa las clases openEHR CLUSTER y openEHR ELEMENT para los tipos \(T_{SimplePatient}\) y \(T_{SimplePatient.gender}\) respectivamente:
 
 \begin{lstlisting}[mathescape=true]
 CLUSTER[id1] $\in$ {
