@@ -9,6 +9,7 @@ implementation/io/**
 *.log
 *.synctex.gz
 *.pdf
+*.out
 
 #ignore generated files by documentclass elsarticle
 *.spl
