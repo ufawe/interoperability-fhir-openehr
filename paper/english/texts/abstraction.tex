@@ -1,0 +1,44 @@
+\subsubsection{Abstraction stage}
+
+FHIR resource is modeled within a type system similar to the one developed in \cite{Maldonado09}. Each FHIR resource element is abstracted by the type that describes its structure. The definition of a type follows this form:
+
+\begin{align*}
+T_t:=p_t\{h_t\}
+\end{align*}
+
+\noindent
+where \(T_t\) is \(t\)'s name type, \(p_t\) is the predicate that describes the values supported by \(t\) type and \(h_t\) is a CML that specifies child elements that \(t\) type have.
+
+Definition of FHIR resource \(R\) with \(E_1\), \dots , \(E_2\) elements is abstracted with definition type as follows:
+
+\begin{align*}
+T_R:=es\_R\{T_{E_1}^{(min_{E_1} \colon max_{E_1})} \dots T_{E_2}^{(min_{E_2} \colon max_{E_2})}\}
+\end{align*}
+
+\noindent
+where \(T_{E_1}\) is the type that defines \(E_1\) element, \(min_{E_1}\) and \(max_{E_1}\) are the superior and inferior limits of the times \(E_1\) element is allowed to appear in \(R\), respectively. The difference with CML introduced in \cite{Maldonado09} is that in the definition of a type length constraints are not used given they don’t provide additional information to the abstraction of an FHIR resource.
+
+To model bindings, the type system presented in \cite{Maldonado09} is extended, adding binding definitions. A binding definition takes the form:
+
+\begin{align*}
+[T_E] := CV
+\end{align*}
+
+\noindent
+where \(T_E\) is the element type definition to which \(CV\) value set is bound.
+
+For example, when we consider SimplePatient resource (a simplification of FHIR Patient resource \cite{FHIRPatient}) which models a patient who has only one code type gender element \cite{FHIRDataTypes} bound to AdministrativeGender value set \cite{FHIRAdministrativeGender}, it is modeled by the type set::
+
+\begin{align*}
+&T_{SimplePatient}:= \\
+&\qquad es\_SimplePatient\{T_{SimplePatient.gender}^{(0:1)}\} \\
+&T_{SimplePatient.gender}:= \\
+&\qquad es\_gender\{T_{SimplePatient.gender.code}^{(1:1)}\} \\
+&T_{SimplePatient.gender.code}:= \\
+&\qquad es\_code\{\epsilon\} \\
+&[T_{SimplePatient.gender.code}] := \\
+&\qquad URL \footnotemark[1] \\
+\end{align*}
+
+\footnotetext[1]{https://www.hl7.org/fhir/valueset-administrative-gender.html}
+A type set that defines an FHIR resource is called an FHIR scheme in this work.

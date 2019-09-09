@@ -1,0 +1,9 @@
+\subsubsection{Archetypes}
+
+Each archetype is a set of constraints in the reference model, defining certain domain content \cite{openEHRArchitecture}. Constraints define instance configurations of the reference model considered to be conforming to the archetype. For example, certain configurations of classes PARTY, ADDRESS, CLUSTER and ELEMENT may be defined by a person archetype as structures for people with identity, contacts and addresses \cite{openEHRAOM}.
+
+Archetypes may keep relations of specialization or composition. Specialized archetypes are created by restricting even further the already existing constraints of other archetypes. Composed archetypes are defined using other archetypes \cite{openEHRArchitecture}.
+
+OpenEHR includes a paths mechanism. These paths can be used to reference any data in an archetype \cite{openEHRArchitecture}.
+
+The archetypes provide a way to define the meaning of data, and to connect data to known terminologies such as SNOMED CT, LOINC, ICPC, ICDx and many other terminologies and terms used in healthcare \cite{openEHRArchitecture}.

@@ -1,0 +1,18 @@
+\subsection{Automated process}
+
+The automated process is based on the formalization proposed in \cite{Maldonado09}, which uses a type system over a tree structure for the definition of the archetype section. The type system models the structural constraints imposed by the archetypes over the reference model. Type system basis is the constraint multiplicity list (CML). CML is a definition language that specifies the valid sequence of attribute node or archetype object childs within the definition.
+
+The automated process has three stages, as shown in figure \ref{fig:solution}: abstraction, substitution and definition. The stages repeat themselves for each openEHR integration archetype to be created from each FHIR resource
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.5]{./images/solution}
+  \caption{Automated process.}
+  \label{fig:solution}
+\end{figure}
+
+\input{./texts/abstraction.tex}
+
+\input{./texts/substitution.tex}
+
+\input{./texts/definition.tex}

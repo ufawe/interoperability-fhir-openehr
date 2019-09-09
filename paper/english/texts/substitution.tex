@@ -1,0 +1,44 @@
+\subsubsection{Substitution stage}
+
+The scheme based on FHIR data types, generated in the previous stage, transforms into a scheme based on openEHR data types. Taking into account the definitions of an FHIR type and an openEHR type:
+
+\begin{align*}
+&T_{FHIR}:=p\_FHIR\{h_{FHIR}\} \\
+&T_{OPENEHR}:=p\_OPENEHR\{h_{OPENERH}\}
+\end{align*}
+
+\noindent
+And an equivalence exists between both types according to the conditions mentioned in the data type equivalences section:
+
+\begin{align*}
+&T_{FHIR} = T_{OPENEHR}
+\end{align*}
+
+\noindent
+Therefore by transitive relation:
+
+\begin{align*}
+p\_FHIR\{h_{FHIR}\} = p\_OPENEHR\{h_{OPENEHR}\}
+\end{align*}
+
+\noindent
+Therefore both expressions are interchangeable with each other and substitution is direct. Each FHIR data type definition is replaced by an equivalent openEHR data type definition. Each binding definition about an FHIR data type is replaced by an equivalent binding definition about an openEHR data type.
+
+For example, SimplePatient resource FHIR scheme transforms at the moment of replacing the FHIR code type definition by the equivalent openEHR DV\_TEXT type definition in:
+
+\begin{align*}
+&T_{SimplePatient}:= \\
+&\qquad es\_SimplePatient\{T_{SimplePatient.gender}^{(0:1)}\} \\
+&T_{SimplePatient.gender}:= \\
+&\qquad es\_gender\{T_{SimplePatient.gender.DV\_TEXT}^{(1:1)}\} \\
+&T_{SimplePatient.gender.DV\_TEXT}:= \\
+&\qquad es\_DV\_TEXT\{T_{SimplePatient.gender.DV\_TEXT.value}^{(1:1)}\} \\
+&T_{SimplePatient.gender.DV\_TEXT.value}:= \\
+&\qquad es\_value\{T_{string}^{(1:1)}\} \\
+&[T_{SimplePatient.gender.DV\_TEXT.value}] := \\
+&\qquad URL \footnotemark[1] \\
+&T_{string}:= \\
+&\qquad es\_string\{\epsilon\} \\
+\end{align*}
+
+A scheme based on openEHR data types is called open\-EHR scheme in this work. As we can see, openEHR and FHIR schemes keep the same structure as defined by SimplePatient resource.

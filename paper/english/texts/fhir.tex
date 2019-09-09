@@ -1,0 +1,30 @@
+\subsection{FHIR}
+
+FHIR defines resources to represent administrative concepts such as patient, provider, organization and device, as well as clinical concepts that cover problems, drugs, diagnostics, care plans and more \cite{FHIRResourceList}.
+
+Resources have the following characteristics in common \cite{FHIRDeveloper}:
+\begin{itemize}
+  \item a URL that identifies the resource;
+  \item common meta-information;
+  \item a human-readable text, for clinical safety;
+  \item a defined set of data elements, different for each resource;
+  \item a framework to extend and adapt existing resources.
+\end{itemize}
+
+Resources are described using StructureDefinition resource \cite{FHIRStructureDefinition}. These StructureDefinition resources define a set of data elements. Each element includes a path, cardinality and a type of data \cite{FHIRElementDefinition}.
+
+Data element path is the most important property of the element's definition. This path locates the element in a hierarchy defined within the resource \cite{FHIRElementDefinition}.
+
+The data type of the data element may be primitive or complex  \cite{FHIRDataTypes}. The difference between both types of data is that the primitive type allows a single value for the element, while the complex type may have child elements. Each type of primitive data is a 3-tuple, which consists of: a) a domain of values, which includes the definition of the data type, b) a XML representation and c) a JSON representation. Within the complex data types there are types with general purpose, meta-data types and special purpose types.
+
+Each data element can be extended or constrained \cite{FHIRProfiling}. Data element extends to represent additional information that is not a part of the resource definition \cite{FHIRExtensibility}. Each resource will only include data elements if those particular elements will be used by the majority of the implementations \cite{FHIRArchitecture}. The data element is restricted by changing its cardinality.
+
+The resources support binding to clinical terminology, which contributes to achieving semantic interoperability \cite{FHIRArchitecture}.
+
+Other than resource definitions, FHIR defines a set of interfaces through which the systems share the resources. The supported exchange mechanisms are the following \cite{FHIRClinician}:
+\begin{itemize}
+  \item through RESTful API;
+  \item by means of documents exchanges;
+  \item via messaging;
+  \item Services / SOA.
+\end{itemize}

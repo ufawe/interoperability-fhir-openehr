@@ -1,0 +1,43 @@
+\subsubsection{Definition stage}
+
+According to openEHR scheme definitions, an open\-EHR integration archetype is created using Archetype Definition Language (ADL) \cite{openEHRADL}.
+
+An FHIR space name and the name of the FHIR resource the openEHR scheme models are used as an identifier of the new openEHR archetype. For example, the identifier of SimplePatient resource openEHR archetype is:
+
+\begin{lstlisting}
+fhir::openEHR-EHR-CLUSTER.SimplePatient.v1.0.0
+\end{lstlisting}
+
+For the definition of the new openEHR archetype, open\-EHR scheme types, abstracted from primitive FHIR types, are expressed using ELEMENT structure; and the other openEHR scheme types are expressed using CLUSTER structure. Both structures belong to the openEHR data structure information model \cite{openEHRDataStructures}. For example, SimplePatient resource openEHR archetype definition section uses classes openEHR CLUSTER y openEHR ELEMENT for the \(T_{SimplePatient}\) y \(T_{SimplePatient.gender}\) types, respectively:
+
+\begin{lstlisting}[mathescape=true]
+CLUSTER[id1] $\in$ {
+  items $\in$ {
+    ELEMENT[id2] occurrences $\in$ {0..1} $\in$ {
+      value $\in$ {
+        DV_TEXT[id3]
+      }
+    }
+  }
+}
+\end{lstlisting}
+
+Binding definitions are added in the term binding section of the new openEHR archetype. For example, the binding definition of \(T_{SimplePatient.gender.DV\_TEXT.value}\) ty\-pe of SimplePatient resource is transcribed in the term binding section of its equivalent openEHR archetype:
+
+\begin{lstlisting}[escapechar=$]
+term_bindings = <
+  [``fhir"] = <
+    [``id3"] = < URL$\footnotemark$ >
+  >
+>
+\end{lstlisting}
+
+\footnotetext{https://www.hl7.org/fhir/valueset-administrative-gender.html}
+
+OpenEHR archetypes allow the formation of ADL paths, which are used to identify openEHR archetype elements  \cite{openEHRArchitecture}. In this stage, the ADL paths of the new openEHR archetype are created and related to the paths of the elements of their equivalent FHIR resource.
+
+Considering the SimplePatient resource, the relationship established is the following:
+
+\begin{lstlisting}[mathescape=true]
+SimplePatient.gender $\Leftrightarrow$ /items[id2]/value[id3]
+\end{lstlisting}

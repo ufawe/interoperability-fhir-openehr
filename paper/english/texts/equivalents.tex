@@ -1,0 +1,20 @@
+\subsection{Equivalences between data types}
+
+The definition of an element in an FHIR resource includes data type \cite{FHIRElement}.Therefore, finding equivalences between FHIR and openEHR data types is a prerequisite. Equivalences will allow to create openEHR archetypes from FHIR resource definitions.
+
+Given the function \( f(x) \) that returns the value domain that may be assigned to \( x \) data, \( A \) the set of attributes of openEHR data type \( o \), the equivalence between FHIR data type \( p \) and openEHR data type \( o \) exists if these conditions are met:
+
+\begin{enumerate}
+  \item \( \exists a \in A \land f(a) \supseteq f(p) \);
+  \item \( o \) and \( p \)'s purposes are the similar.
+\end{enumerate}
+
+Equivalences are found performing an exhaustive manual revision of the FHIR data type set \cite{FHIRDataTypes} and openEHR data type information model \cite{openEHRDataTypes}. First, for each FHIR data type, openEHR data types are grouped, that contains certain attributes whose value domain is a super set of FHIR data type value domain. Later, definitions are analyzed and compared, including the purpose of each FHIR data type and their group of openEHR data types, found initially. Definition of \cite{W3C} is only used for FHIR Boolean type for lacking an explicit definition in FHIR specification and for being a data type imported from W3C.
+
+For example,FHIR Boolean type and openEHR DV\_\-BOOLEAN fulfill the same conditions, therefore, they are equivalent:
+\begin{enumerate}
+  \item True and false values of Boolean type value domain can be stored in DV\_BOOLEAN type of value attribute;
+  \item The use of DV\_BOOLEAN, which specifies the type is used for elements which are truly Boolean data is the same use as the one Boolean type of data has.
+\end{enumerate}
+
+Only primitive FHIR data types require an equivalence with openEHR data types.

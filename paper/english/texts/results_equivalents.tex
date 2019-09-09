@@ -1,0 +1,34 @@
+\subsection{Equivalences between data types}
+
+Equivalences found between FHIR and openEHR data types are presented in table \ref{table:equivalents}.
+
+\begin{table}[h]
+  \caption{Equivalences between data types}
+  \label{table:equivalents}
+  \begin{tabular}{l l}
+    \hline
+    FHIR data type &	openEHR data type \\
+    \hline
+    Boolean	& DV\_BOOLEAN \\
+    Integer	& DV\_QUANTITY \\
+    String	& DV\_TEXT \\
+    Decimal	& DV\_QUANTITY \\
+    Uri	& DV\_URI \\
+    base64Binary	& DV\_PARSABLE \\
+    Instant	& DV\_DATE\_TIME \\
+    Date	& DV\_DATE \\
+    dateTime	& DV\_DATE\_TIME \\
+    Time	& DV\_TIME \\
+    Code	& DV\_TEXT \\
+    Oid	& DV\_URI \\
+    id 	& DV\_TEXT \\
+    Markdown	& DV\_PARSABLE \\
+    unsignedInt	& DV\_QUANTITY \\
+    positiveInt	& DV\_QUANTITY \\
+    \hline
+  \end{tabular}
+\end{table}
+
+It is worth mentioning that for every FHIR data type we find their openEHR equivalent, observing that both standards share the same domain values. openEHR data types listed in table 1, except for DV\_QUANTITY type, have a value attribute that supports the values of the equivalent FHIR data types. DV\_QUANTITY type supports the values of the FHIR equivalent data types in its magnitude attribute. A particular case is the equivalence between string type and DV\_TEXT type. String type may contains Unicode horizontal tab characters, carriage return and line feed, which are not allowed in DV\_TEXT type.
+
+Besides, it is verified through the specifications, that openEHR classes keep their purposes.
