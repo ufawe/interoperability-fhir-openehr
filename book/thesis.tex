@@ -1,0 +1,381 @@
+\documentclass[oneside,a4paper,12pt]{report}
+\usepackage[spanish]{babel}
+\usepackage{hyphenat}
+% support to write in spanish
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage[]{amsthm}
+\usepackage{lmodern}
+
+% support to add non-formatted text
+\usepackage{listings}
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{placeins}
+\usepackage{acronym}
+
+\usepackage{caption}
+\usepackage[boxed]{algorithm2e}
+
+\usepackage{tikz}
+\usetikzlibrary{spy}
+
+\hyphenation{or-de-na-mien-to}
+
+% agregados por ccappo
+\usepackage[toc,nomain,acronym,nonumberlist,nohypertypes=acronym,sort=def]{glossaries}
+\usepackage{enumitem}
+
+% -------------
+
+
+\usepackage{array}
+\usepackage[]{multirow}
+\usepackage[]{multicol}
+\usepackage[]{hhline}
+\usepackage[final]{pdfpages}
+
+\usepackage{caption}
+\usepackage[boxed]{algorithm2e}
+
+\newtheorem{theorem}{Teorema}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lema}
+\newtheorem{assumption}{Assumption}
+\newtheorem{remark}{Remark}
+\newtheorem{definition}{Definicin}
+
+
+\SetKwInput{KwIn}{Entrada}
+\SetKwInput{KwData}{Entrada}
+\SetKwInput{KwResult}{Salida}
+\SetKwInput{KwOut}{Salida}
+\SetKwInput{Return}{retornar}
+\SetKwFor{For}{desde}{hacer}{fin\_desde}
+\SetKwFor{While}{mientras}{hacer}{fin\_mientras}
+\SetKwIF{If}{ElseIf}{Else}{si}{entonces}{si\_no si}{si\_no}{fin\_si}
+
+
+\graphicspath{{./structurePlot/}{./experiments/}{./bloques/}{./stagnation/}{./helmke/}{./Figures/}}
+\DeclareGraphicsExtensions{{.eps}{.jpg}{.JPG}{.png}{.PNG}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newglossary[symb]{symbol}{symb}{sym}{Lista de Smbolos}
+
+%\input{abreviaturas}
+
+%\input{symbols}
+
+%\makeglossaries
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\newif\if@abstractmode
+
+\renewenvironment{titlepage}
+{
+	\if@twocolumn
+	\@restonecoltrue\onecolumn
+	\else
+	\@restonecolfalse\newpage
+	\fi
+	\if@abstractmode
+	\thispagestyle{plain}%
+	%\stepcounter{page}%
+	\else
+	\thispagestyle{plain}%
+	%\setcounter{page}\@ne%
+	\fi
+}%
+{\if@restonecol\twocolumn \else \newpage \fi
+	\if@twoside\else
+	\if@abstractmode
+	\else
+	\setcounter{page}\@ne%
+	\fi
+	\fi
+}
+
+\AtBeginEnvironment{abstract}{%
+	\@abstractmodetrue%
+}
+
+%\makeatother
+
+\makeatletter
+\renewcommand{\maketitle}{\begin{titlepage}%
+		%\null\vfil
+		%\vskip 10\p@
+		\thispagestyle{empty}
+		\setcounter{page}{1}
+		\noindent
+		\begin{minipage}{0.3\textwidth}
+			\includegraphics[width=25mm]{./images/fpuna_logo_institucional.png}
+		\end{minipage}
+		\hfill%
+		\begin{minipage}{0.7\textwidth}
+			\raggedleft
+			{\Large Universidad Nacional de Asunción}\\
+			\vskip 1em%
+			{\LARGE Facultad Politécnica}
+		\end{minipage}
+
+		\begin{center}
+			\vskip 5em%
+			{\large \@title \par}%
+			\vskip 5em%
+			{\large \@author }
+			\vskip 1.5em%
+			\vfill
+			{\small \textit{Tesis presentada a la Facultad Politécnica, Universidad Nacional de Asunción, como requisito  para la obtención del Grado de Ingeniero en Informática.}}
+			\vskip 1.5em%
+			{San Lorenzo - Paraguay}  \\
+			{Noviembre, 2019}
+		\end{center}\par
+
+		\newpage
+		\noindent
+
+		\begin{center}
+			{\Large Universidad Nacional de Asunción}
+			\vskip 1em
+			{\LARGE Facultad Politécnica}
+		\end{center}
+
+		\begin{center}
+			\vskip 5em%
+			{\large \@title \par}%
+			\vskip 5em%
+			{\large \@author }
+			\vskip 2.5em%
+			\begin{tabular}[t]{cl}
+				{\large Orientadores:}  \\
+				& {\large Prof. Cynthia Villalba, Dr.} \\
+				& {\large Prof. José Luis Vázquez Noguera, Dr.}
+			\end{tabular}
+			\vfill
+			{\small \textit{Tesis presentada a la Facultad Politécnica, Universidad Nacional de Asunción, como requisito  para la obtención del Grado de Ingenierio en Informática.}}
+			\vskip 1.5em%
+			{San Lorenzo - Paraguay}  \\
+			{Noviembre, 2019}
+		\end{center}\par
+	\end{titlepage}%
+	\setcounter{footnote}{0}%
+	\global\let\thanks\relax
+	\global\let\maketitle\relax
+	\global\let\@thanks\@empty
+	\global\let\@author\@empty
+	\global\let\@date\@empty
+	\global\let\@title\@empty
+	\global\let\title\relax
+	\global\let\author\relax
+	\global\let\date\relax
+	\global\let\and\relax
+}
+\makeatother
+
+\title{
+	{\LARGE \textbf{Creación automática de arquetipo de integración de openEHR a partir de recurso de FHIR basado en equivalencias de tipos de datos}}
+}
+
+\author{\LARGE{Uriel Ivar González Benítez}}
+
+
+%% Math Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amsfonts}
+
+%% Line Spacing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{setspace}
+%\singlespacing        %% 1-spacing (default)
+\onehalfspacing       %% 1,5-spacing
+%\doublespacing        %% 2-spacing
+
+%% Other Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{a4wide} %%Smaller margins = more text per page.
+%\usepackage{fancyhdr} %%Fancy headings
+%\usepackage{longtable} %%For tables, that exceed one page
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Remarks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% TODO:
+% 1. Edit the used packages and their options (see above).
+% 2. If you want, add a BibTeX-File to the project
+%    (e.g., 'literature.bib').
+% 3. Happy TeXing!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Options / Modifications
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\input{options} %You need a file 'options.tex' for this
+%% ==> TeXnicCenter supplies some possible option files
+%% ==> with its templates (File | New from Template...).
+
+\setlength{\parindent}{1cm}
+\usepackage{titlesec}
+
+\fontsize{10pt}{12pt}\selectfont
+
+\titleformat{\chapter}[display]
+{\normalfont \sffamily%
+	%\Huge% %change this size to your needs for the first line
+	\fontsize{30pt}{25pt}\selectfont
+	\bfseries}{\sffamily \chaptertitlename\ \thechapter}{20pt}{%
+	\Huge %change this size to your needs for the second line
+}
+
+%\titleformat{\chapter}
+%  {\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\renewcommand{\listtablename}{ndice de Tablas}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\abstractname}{Resumen}
+%\renewcommand{\algorithmname}{Algoritmo}
+\SetAlgorithmName{Algoritmo}
+
+% permite sacar la constante Capitulo de cada "chapter" y dejar
+% numerado y con el ttulo de una seccion.
+% --------------------------------------------
+%\usepackage{titlesec}
+%\titleformat{\chapter}
+%  {\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
+%\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+% --------------------------------------------
+
+% permite arreglar el problema de que las citas salen fuera del margen, hace
+
+\usepackage{breakcites}
+
+\begin{document}
+
+\glsaddall % Colocar aqui para que funcione y agregue todos los acronimos aun si no se especificaron con \gls.
+
+\pagenumbering{roman}
+
+\maketitle
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+\clearpage
+
+\renewcommand{\abstractname}{{\normalfont Hoja de Aprobación de Tesis}}
+\abstract{
+	\setcounter{page}{3}
+
+	\vspace{+10pt}
+
+	\begin{center}
+		{\Large \textbf{Creación automática de arquetipo de integración de openEHR a partir de recurso de FHIR basado en equivalencias de tipos de datos}}
+	\end{center}
+	\
+
+	\begin{center}
+		\textbf{Uriel Ivar González Benítez}
+	\end{center}
+
+	\vspace{+20pt}
+
+	\begin{flushleft}
+		Tesis de Grado aprobada el XX de Noviembre de 2019 por los siguientes miembros del Jurado de Defensa:
+	\end{flushleft}
+
+	\vspace{+20pt}
+
+	\begin{tabular}{rr}
+		& Prof. Dr. Cynthia Villalba (FP-UNA), orientador \\
+		& Prof. Dr. José Luis Vázquez Noguera (FP-UNA), co-orientador \\
+	\end{tabular}
+
+	\vspace{+90pt}
+
+	\noindent
+	\begin{tabular}{cC{0.6cm}c}
+		\textbf{Prof. Dr. Cynthia Villalba} & &\textbf{Prof. Dr. José L. Vázquez N.} \\
+		Orientador & &Co-Orientador \\
+	\end{tabular}
+
+}
+
+
+% \newcommand{\myalfnt}[1]{\small #1}
+% \SetAlFnt{\myalfnt}
+
+\renewcommand\figurename{Figura}
+\renewcommand\tablename{Tabla}
+\renewcommand\partname{Parte}
+\renewcommand\chaptername{Captulo}
+\renewcommand\appendixname{APENDICE}
+\renewcommand\abstractname{RESUMEN}
+\renewcommand\proofname{Demostracin}
+% \renewcommand\algorithmname{Algoritmo}
+
+
+
+%\renewcommand\fcontentsname{NDICE GENERAL}
+%\renewcommand\listfigurename{LISTA DE FIGURAS}
+%\renewcommand\listtablename{LISTA DE TABLAS}
+%\renewcommand\bibname{REFERENCIAS BIBLIOGRFICAS}
+%\renewcommand\indexname{LISTA DE SMBOLOS}
+
+\SetAlgorithmName{Algoritmo}{algoritmo}{LISTA DE ALGORITMOS}
+
+
+
+  \include{dedicatoria}
+  \include{agradecimientos}
+  \input{resumen}
+  \input{resumen-ingles}
+
+
+  \renewcommand{\contentsname}{Apndice General}
+  \renewcommand{\bibname}{Referencias Bibliogrficas}
+  \renewcommand{\listtablename}{Lista de Tablas}
+  \renewcommand{\listfigurename}{Lista de Figuras}
+  \renewcommand{\listalgorithmcfname}{Lista de Algoritmos}  % agregar al TOC la lista de Algoritmos
+
+  \tableofcontents
+
+  \cleardoublepage
+  \addcontentsline{toc}{chapter}{\listfigurename}  % agregar al TOC la lista de figuras
+  \listoffigures
+
+  \addcontentsline{toc}{chapter}{\listtablename} % agregar al TOC la lista de tablas
+  \listoftables
+  \include{abreviaturas}
+  %\setlist[description]{leftmargin=!, labelwidth=5em} % alinear la descripcion
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %\printglossary[type=\acronymtype, title=Lista de Abreviaciones, toctitle=Lista de Abreviaciones]
+  %\printglossary[type=symbol,title=Lista de Smbolos, toctitle=Lista de Smbolos]
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %\setlist[description]{style=standard} % volver a colocar en su formato original
+ \clearpage
+ \pagenumbering{arabic}
+
+  %\mainmatter
+    \include{chap01}
+    \include{chap02}
+    \include{chap03}
+    \include{chap04}
+    \include{chap05}
+ % \backmatter
+ %\bibliographystyle{abbrv}
+  \bibliographystyle{elsarticle-num}
+  \bibliography{referencias}
+
+\end{document}

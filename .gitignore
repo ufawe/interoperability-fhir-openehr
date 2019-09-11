@@ -11,6 +11,15 @@ implementation/io/**
 *.pdf
 *.out
 
+# ignore LaTeX Auxiliary File for List Of Figures
+*.lof
+
+# ignore LaTeX Auxiliary File for List Of Tables
+*.lot
+
+# ignore LaTeX Auxiliary File for Table of Contents
+*.toc
+
 #ignore generated files by documentclass elsarticle
 *.spl
 

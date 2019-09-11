@@ -1,0 +1,27 @@
+\chapter{Conclusiones}
+
+Intercambiar datos es uno de los requisitos más básicos que openEHR busca satisfacer. Importar y exportar datos por medio de interfaces FHIR sobre repositorios openEHR requiere una conversión de datos. Técnicamente, exiten 2 temas a resolver que son la equivalencia a nivel de estructura y la compatibilidad a nivel de tipo de dato.
+
+El trabajo presentado resuelve la equivalencia estructural creando arquetipos de integración similares a lo expuesto en \cite{openEHRArchitecture}. Estos arquetipos creados se caracterizan por:
+
+\begin{enumerate}
+  \item estar basados en las clases CLUSTER y ELEMENT;
+  \item estar diseñados para copiar la estructura de datos de recursos FHIR existentes;
+  \item existe un arquetipo de integración por recurso FHIR compartido.
+\end{enumerate}
+
+Como las estructuras de estos arquetipos de integración son idénticas a las estructuras de los recursos FHIR que se utilizan para intercambiar datos, se puede utilizar las rutas ADL de los arquetipos de integración y las rutas de los elementos de los recusos para establecer reglas de conversión de datos. Estas reglas de conversión pueden usarse en programas de transformación basados en XQuery para convertir instancias de recursos FHIR a instancias de arquetipos de integración openEHR y viceversa. Estos arquetipos de integración pueden ser utilizados por software openEHR o bien mapeados a arquetipos existentes utilizando herramientas como LinkEHR-Ed \cite{Maldonado09}. Este mapeo queda como trabajo futuro y forma parte de la estrategia de integración basada en arquetipos explicada en \cite{openEHRIntegration}.
+
+Una ventaja de la integración basada en arquetipos es que el diseño de los arquetipos de integración lo hace TI u otro personal técnico que esté familiarizado con las estructuras de los datos entrantes, sin involucramiento de los especialistas de dominio. Esto es importante porque delega la responsabilidad de integración de sistemas a personal de TI, mientras mantiene el diseño de los demás arquetipos a cargo de los especialistas de dominio.
+
+En esta estrategia de integración existe la desventaja de tener que crear arquetipos de integración en vez de utilizar directamente los arquetipos disponibles en librerías. Sin embargo, este problema puede solucionarse realizando transformaciones directas entre arquetipos de integración y arquetipos diseñados en librerías. El usar un mismo nombre de espacio fhir para los arquetipos de integración servirá para distinguir estos arquetipos que representan recursos FHIR.
+
+Un problema a resolver es la definición recursiva de recursos FHIR y que en arquetipos openEHR no está permitida. Una forma de resolver es limitando la profundidad de recursividad. Otras formas de solución requieren más trabajo futuro.
+
+De forma a resolver la compatibilidad entre tipos de datos FHIR y openEHR, se propuso una definición de equivalencia con 2 condiciones. La primera condición garantiza que todo dato FHIR puede ser convertido en un dato openEHR. La segunda condición asegura que los datos convertidos puedan ser procesados correctamente.
+
+Una forma de solventar el caso particular de la equivalencia entre el tipo String y el tipo DV\_TEXT es que en la conversión de datos de estos caracteres no impresos se sustituya por su codificación en Unicode para que se pueda almacenar como texto dentro del tipo DV\_TEXT y cuando se recuperen se vuelvan a convertir a su valor original. De esta forma se garantiza que no habrá pérdida de información.
+
+Medicina es un dominio cambiante. Por lo tanto, proveer un proceso de creación automática de arquetipos de integración que ahorre tiempo y reduzca errores es de gran utilidad para el personal técnico. El experimento realizado mostró una reducción significativa en el tiempo de creación usando el proceso automatizado.
+
+En conclusión, las equivalencias de tipos y el proceso automatizado ayuda a que se pueda convertir y procesar correctamente los datos de instancias de recursos FHIR en instancias de arquetipos de integración openEHR, siendo un siguiente paso verificar la posibilidad de crear recursos FHIR de arquetipos openEHR utilizando las equivalencias presentadas y el proceso propuesto en este trabajo.
