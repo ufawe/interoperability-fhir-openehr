@@ -1,6 +1,6 @@
-\section{Discussion}
+\section{Discussion and conclusion}
 
-Exchanging data is one of the most basic requirements openEHR seeks to fulfill. Importing and exporting data through FHIR interfaces over openEHR repositories requires data conversion. Technically, there are 2 issues to solve, being equivalence on a structure level and compatibility on a data type level.
+Exchanging data is one of the most basic requirements openEHR seeks to fulfill. Importing and exporting data through FHIR interfaces over openEHR repositories requires data conversion. Technically, there are two issues to solve, being equivalence on a structure level and compatibility on a data type level.
 
 The present work solves the structural equivalence creating integration archetypes similar to that exposed in \cite{openEHRArchitecture}. These archetypes created are characterized by:
 
@@ -18,7 +18,7 @@ In this integration strategy we have the disadvantage of having to create integr
 
 A problem to solve is the recursive definition of FHIR resources that is not allowed in openEHR archetypes. A way to solve this is by restricting the recursiveness depth. Other ways to solve this require future work.
 
-In a way to resolve compatibility between FHIR and openEHR data types, a definition of equivalence was proposed, with 2 conditions. First condition ensures that all FHIR data can be converted into openEHR data. Second condition ensures that converted data can be processed properly.
+In a way to resolve compatibility between FHIR and openEHR data types, a definition of equivalence was proposed, with two conditions. First condition ensures that all FHIR data can be converted into openEHR data. Second condition ensures that converted data can be processed properly.
 
 A way to solve the particular case concerning equivalence between String and DV\_TEXT types is that in data conversion of these non printed characters they be replaced by their Unicode codification so that they can be stored as text within DV\_TEXT type and when retrieved they be turned back to their original value. This way it is guaranteed there won’t be any information loss.
 
